@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+</head>
+
+
+<body bgcolor="#FFF7EC" text="#222222">
+
+  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#7C4A21">
+    <tr>
+      <td>
+        <font color="#FFFFFF" size="+3"><b>Café Aroma</b></font><br>
+        <font color="#FBE9D6">Gestión de Sugerencias y Libro de Reclamaciones</font>
+      </td>
+    </tr>
+  </table>
+
+  <center>
+    <table width="92%" cellpadding="10" cellspacing="0">
+      <tr><td>
+
+     
+        <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF" border="0">
+          <tr>
+           
+            <td width="35%" valign="top" bgcolor="#F2F2F2">
+              <font color="#4A148C"><b>Sugerencias</b></font><br>
+              <small>Coloque sus sugerencias</small>
+              <hr size="1" color="#DDDDDD">
+              <p>📍 <b>Dirección</b><br> Av. Arequipa 1234, Jesús María – Lima</p>
+              <p>☎️ <b>Teléfono</b><br> 945123789<br> 960505452</p>
+              <p>✉️ <b>Correo</b><br> contacto@cafearoma.com</p>
+            </td>
+
+            
+            <td width="65%" valign="top">
+              <form id="form-sugerencias"
+                    onsubmit="if(this.checkValidity()){alert('¡Gracias! Sugerencia enviada.'); this.reset();} return false;"
+                    novalidate>
+                <label for="sugNombre">Nombre</label><br>
+                <input id="sugNombre" name="nombre" type="text" required minlength="2" maxlength="60" size="48"><br><br>
+
+                <label for="sugEmail">Email</label><br>
+                <input id="sugEmail" name="email" type="email" required size="48"><br><br>
+
+                <label for="sugMensaje">Mensaje</label><br>
+                <textarea id="sugMensaje" name="mensaje" rows="4" cols="50" required minlength="10" maxlength="1000"></textarea><br><br>
+
+                <input type="submit" value="Enviar">
+              </form>
+            </td>
+          </tr>
+        </table>
+
+        <br>
+
+       
+        <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF" border="0">
+          <tr><td>
+            <font size="+2"><b>Libro de reclamaciones</b></font>
+            <p><b>Identificación del consumidor reclamante</b></p>
+
+            <form id="form-reclamos"
+                  onsubmit="if(this.checkValidity()){alert('Datos iniciales registrados.'); this.reset();} return false;"
+                  novalidate>
+
+              <table width="100%" cellpadding="6">
+               
+                <tr>
+                  <td width="50%">
+                    <label for="recNombre">Nombre *</label><br>
+                    <input id="recNombre" name="nombre" type="text" required minlength="2" maxlength="80" size="40">
+                  </td>
+                  <td width="50%">
+                    <label for="recDomicilio">Domicilio *</label><br>
+                    <input id="recDomicilio" name="domicilio" type="text" required size="40">
+                  </td>
+                </tr>
+
+              
+                <tr>
+                  <td>
+                    <label for="recDni">DNI/CE *</label><br>
+                    <input id="recDni" name="dni" type="text" required minlength="8" maxlength="12" size="40">
+                  </td>
+                  <td>
+                    <label for="recTelefono">Teléfono *</label><br>
+                    <input id="recTelefono" name="telefono" type="tel" required pattern="[0-9\s]{6,}" placeholder="999 999 999" size="40">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <label for="recEmail">Correo electrónico *</label><br>
+                    <input id="recEmail" name="email" type="email" required size="60">
+                  </td>
+                </tr>
+              </table>
+
+              <br>
+              <input type="submit" value="Continuar">
+              
+            </form>
+          </td></tr>
+        </table>
+
+      </td></tr>
+    </table>
+  </center>
+
+  <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#2B2B2B">
+    <tr>
+      <td align="center"><font color="#CCCCCC">© 2025 Café Aroma</font></td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
