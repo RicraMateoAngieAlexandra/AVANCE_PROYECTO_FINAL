@@ -4,123 +4,333 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+  </head>
 
-
-<body bgcolor="#FFF7EC" text="#222222">
-
-  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#7C4A21">
-    <tr>
-      <td>
-        <font color="#FFFFFF" size="+3"><b>Café Aroma</b></font><br>
-        <font color="#FBE9D6">Gestión de Sugerencias y Libro de Reclamaciones</font>
-      </td>
-    </tr>
-  </table>
-
-  <center>
-    <table width="92%" cellpadding="10" cellspacing="0">
-      <tr><td>
-
-     
-        <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF" border="0">
-          <tr>
-           
-            <td width="35%" valign="top" bgcolor="#F2F2F2">
-              <font color="#4A148C"><b>Sugerencias</b></font><br>
-              <small>Coloque sus sugerencias</small>
-              <hr size="1" color="#DDDDDD">
-              <p>📍 <b>Dirección</b><br> Av. Arequipa 1234, Jesús María – Lima</p>
-              <p>☎️ <b>Teléfono</b><br> 945123789<br> 960505452</p>
-              <p>✉️ <b>Correo</b><br> contacto@cafearoma.com</p>
-            </td>
-
-            
-            <td width="65%" valign="top">
-              <form id="form-sugerencias"
-                    onsubmit="if(this.checkValidity()){alert('¡Gracias! Sugerencia enviada.'); this.reset();} return false;"
-                    novalidate>
-                <label for="sugNombre">Nombre</label><br>
-                <input id="sugNombre" name="nombre" type="text" required minlength="2" maxlength="60" size="48"><br><br>
-
-                <label for="sugEmail">Email</label><br>
-                <input id="sugEmail" name="email" type="email" required size="48"><br><br>
-
-                <label for="sugMensaje">Mensaje</label><br>
-                <textarea id="sugMensaje" name="mensaje" rows="4" cols="50" required minlength="10" maxlength="1000"></textarea><br><br>
-
-                <input type="submit" value="Enviar">
-              </form>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-
-       
-        <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF" border="0">
-          <tr><td>
-            <font size="+2"><b>Libro de reclamaciones</b></font>
-            <p><b>Identificación del consumidor reclamante</b></p>
-
-            <form id="form-reclamos"
-                  onsubmit="if(this.checkValidity()){alert('Datos iniciales registrados.'); this.reset();} return false;"
-                  novalidate>
-
-              <table width="100%" cellpadding="6">
-               
-                <tr>
-                  <td width="50%">
-                    <label for="recNombre">Nombre *</label><br>
-                    <input id="recNombre" name="nombre" type="text" required minlength="2" maxlength="80" size="40">
-                  </td>
-                  <td width="50%">
-                    <label for="recDomicilio">Domicilio *</label><br>
-                    <input id="recDomicilio" name="domicilio" type="text" required size="40">
-                  </td>
-                </tr>
-
-              
-                <tr>
-                  <td>
-                    <label for="recDni">DNI/CE *</label><br>
-                    <input id="recDni" name="dni" type="text" required minlength="8" maxlength="12" size="40">
-                  </td>
-                  <td>
-                    <label for="recTelefono">Teléfono *</label><br>
-                    <input id="recTelefono" name="telefono" type="tel" required pattern="[0-9\s]{6,}" placeholder="999 999 999" size="40">
-                  </td>
-                </tr>
-
-                <tr>
-                  <td colspan="2">
-                    <label for="recEmail">Correo electrónico *</label><br>
-                    <input id="recEmail" name="email" type="email" required size="60">
-                  </td>
-                </tr>
-              </table>
-
-              <br>
-              <input type="submit" value="Continuar">
-              
-            </form>
-          </td></tr>
-        </table>
-
-      </td></tr>
+  <body bgcolor="#FFF7EC" text="#222222">
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr>
+        <td>
+          <font color="#FFFFFF" size="+3"><b>Café Aroma</b></font
+          ><br />
+          <font color="#FBE9D6"
+            >Gestión de Sugerencias y Libro de Reclamaciones</font
+          >
+        </td>
+      </tr>
     </table>
-  </center>
 
-  <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#2B2B2B">
-    <tr>
-      <td align="center"><font color="#CCCCCC">© 2025 Café Aroma</font></td>
-    </tr>
-  </table>
+    <center>
+       <table
+              width="100%"
+              cellpadding="16"
+              cellspacing="0"
+              style="background-color: #f5e8d7"
+              border="0">
+              <tr>
+                <td colspan="2" align="center">
+                  <font size="+3" style="font-family: 'georgia', serif; font-size: 28px; font-weight: bold;"><b>Productos y Servicios</b></font>
+                  <p>
+                "En Aroma te invitamos a vivir una experiencia 
+                única donde el aroma y el sabor se encuentran en 
+                perfecta armonía. Nuestra cafetería ofrece cafés
+                 especiales, bebidas artesanales pensados para acompañar 
+                 cada momento del día. Descubre nuestros productos y 
+                 servicios creados para brindarte calidad, calidez y
+                 el placer de una buena taza de café☕😊"
+                  <ul>
+                    <tr>
+                    </tr>
+                     <table
+                       width="100%"
+                       cellpadding="10"
+                       cellspacing="0"
+                       style="background-color: #EFE2D0"
+                       border="0">
+                       <tr>
+                         <td colspan="2" align="center" style="font-family: 'georgia', serif; font-size: 28px; font-weight: bold;">
+                           <font size="+2.5"><b>Productos de alta calidad 🏆</b></font>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td colspan="2" align="center">
+                           <iframe width="500" height="315" src="https://www.youtube.com/embed/0jIeCAOkgcQ?si=UniQVhGejyOHANoh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                         </td>
+                       </tr>
+                     </table>
+                     <table
+                       width="100%"
+                       cellpadding="10"
+                       cellspacing="0"
+                       style="background-color: #c4a484"
+                       border="0">
+                       <tr>
+                         <td colspan="2" align="center" style="font-family: 'georgia', serif; font-size: 28px;font-weight: bold;">
+                           <font size="+2.5"><b>Conoce Nuestros Cafes ☕🌿</b></font>
+                         </td>
+                       <tr>
+                         <td colspan="2" align="center">
+                           <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                             <figure style="margin:0;">
+                               <img src="https://s3.ppllstatics.com/diariovasco/www/multimedia/2024/11/13/espresso-RrCckvN0LEAFk54KAQQPcXM-1200x840@Diario%20Vasco.jpg" alt="Café espresso" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px px #cf2762;">
+                               <figcaption>Café Espresso</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://cafeselcriollo.com/wp-content/uploads/2022/04/que-es-un-cafe-latte-como-preparar-cafe-latte-macchiato-cafes-el-criollo.jpg" alt="Café latte" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #f4a3b2;">
+                               <figcaption>Café Latte</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cappuccino_in_original.jpg/1200px-Cappuccino_in_original.jpg" alt="Café capuchino" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #e1b495;">
+                               <figcaption>Capuchino</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://excelso77.com/wp-content/uploads/2024/05/por-que-el-cafe-americano-se-llama-asi-te-lo-contamos.webp" alt="Café americano" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #d98046;">
+                               <figcaption>Americano</figcaption>
+                             </figure>
+                           </div>
+                         </td>
+                       </tr>
+                     </table>
+                     <table
+                       width="100%"
+                       cellpadding="10"
+                       cellspacing="0"
+                       style="background-color: #EEC9C5"
+                       border="0">
+                       <tr>
+                         <td colspan="2" align="center" style="font-family: 'georgia', serif; font-size: 28px; font-weight: bold;">
+                           <font size="+2.5"><b>Conoce Nuestros Postres 🍰</b></font>
+                         </td>
+                       <tr>
+                         <td colspan="2" align="center">
+                           <div style="display:flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                             <figure style="margin:0;">
+                               <img src="https://www.jocooks.com/wp-content/uploads/2018/11/cheesecake-1-22.jpg" alt="Cheesecake" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px px #cf2762;">
+                               <figcaption>Cheesecake</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://elmundodelchef.com/wp-content/uploads/2024/04/flan-uno-de-los-postres-de-cafeteria-colocado-en-plato-de-porcelana-sobre-una-mesa-de-cocina-1024x497.webp" alt="Flan" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #f4a3b2;">
+                               <figcaption>Flan</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://www.paulinacocina.net/wp-content/uploads/2020/01/receta-de-tiramisu-facil-y-economico-1740483918.jpg" alt="Tiramisú" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #e1b495;">
+                               <figcaption>Tiramisú</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://content-cocina.lecturas.com/medio/2021/07/12/pastel-de-zanahoria-con-buttercream_f8c9e717_1200x1200.jpg" alt="Pastel de zanahoria" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #d98046;">
+                               <figcaption>Pastel de Zanahoria</figcaption>
+                             </figure>
+                           </div>
+                         </td>
+                       </tr>
+                     </table>
+                     <table
+                        width="100%"
+                        cellpadding="10"
+                        cellspacing="0"
+                        style="background-color: #EFE2D0"
+                        border="0">
+                        <tr>
+                          <td colspan="2" align="center">
+                            <font size="+2.5"><b>Nuestros Servicios ⭐</b></font>
+                          </td>
+                        <tr>
+                          <td colspan="2" align="center">
+                            <ul style="text-align: left; display: inline-block; margin-top: -15px;">
+                              <li>Atencion de calidad garantizada 👌🤝</li>
+                              <li>Pedidos en línea y entrega a domicilio 🚚📱</li>
+                              <li>Ambiente acogedor para que te sientas en completa comodidad 🪑📶</li>
+                              <li>Pagos faciles y programas para nuestros clientes mas fieles🎁💳</li>
+                            </ul>
+                          </td>
+                        </tr>
+                     </table>
+                    </td>
+                    </tr>    
+                </td>
+              </tr>
+            </table>
+      <table width="92%" cellpadding="10" cellspacing="0">
+        <tr>
+          <td>
+            <table
+              width="100%"
+              cellpadding="12"
+              cellspacing="0"
+              bgcolor="#FFFFFF"
+              border="0"
+            >
+              <tr>
+                <td width="35%" valign="top" bgcolor="#F2F2F2">
+                  <font color="#4A148C"><b>Sugerencias</b></font
+                  ><br />
+                  <small>Coloque sus sugerencias</small>
+                  <hr size="1" color="#DDDDDD" />
+                  <p>
+                    📍 <b>Dirección</b><br />
+                    Av. Arequipa 1234, Jesús María – Lima
+                  </p>
+                  <p>
+                    ☎️ <b>Teléfono</b><br />
+                    945123789<br />
+                    960505452
+                  </p>
+                  <p>
+                    ✉️ <b>Correo</b><br />
+                    contacto@cafearoma.com
+                  </p>
+                </td>
 
-</body>
+                <td width="65%" valign="top">
+                  <form
+                    id="form-sugerencias"
+                    onsubmit="if(this.checkValidity()){alert('¡Gracias! Sugerencia enviada.'); this.reset();} return false;"
+                    novalidate
+                  >
+                    <label for="sugNombre">Nombre</label><br />
+                    <input
+                      id="sugNombre"
+                      name="nombre"
+                      type="text"
+                      required
+                      minlength="2"
+                      maxlength="60"
+                      size="48"
+                    /><br /><br />
+
+                    <label for="sugEmail">Email</label><br />
+                    <input
+                      id="sugEmail"
+                      name="email"
+                      type="email"
+                      required
+                      size="48"
+                    /><br /><br />
+
+                    <label for="sugMensaje">Mensaje</label><br />
+                    <textarea
+                      id="sugMensaje"
+                      name="mensaje"
+                      rows="4"
+                      cols="50"
+                      required
+                      minlength="10"
+                      maxlength="1000"
+                    ></textarea
+                    ><br /><br />
+
+                    <input type="submit" value="Enviar" />
+                  </form>
+                </td>
+              </tr>
+            </table>
+
+            <br />
+
+            <table
+              width="100%"
+              cellpadding="12"
+              cellspacing="0"
+              bgcolor="#FFFFFF"
+              border="0"
+            
+              <tr>
+                <td>
+                  <font size="+2"><b>Libro de reclamaciones</b></font>
+                  <p><b>Identificación del consumidor reclamante</b></p>
+
+                  <form
+                    id="form-reclamos"
+                    onsubmit="if(this.checkValidity()){alert('Datos iniciales registrados.'); this.reset();} return false;"
+                    novalidate
+                  >
+                    <table width="100%" cellpadding="6">
+                      <tr>
+                        <td width="50%">
+                          <label for="recNombre">Nombre *</label><br />
+                          <input
+                            id="recNombre"
+                            name="nombre"
+                            type="text"
+                            required
+                            minlength="2"
+                            maxlength="80"
+                            size="40"
+                          />
+                        </td>
+                        <td width="50%">
+                          <label for="recDomicilio">Domicilio *</label><br />
+                          <input
+                            id="recDomicilio"
+                            name="domicilio"
+                            type="text"
+                            required
+                            size="40"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <label for="recDni">DNI/CE *</label><br />
+                          <input
+                            id="recDni"
+                            name="dni"
+                            type="text"
+                            required
+                            minlength="8"
+                            maxlength="12"
+                            size="40"
+                          />
+                        </td>
+                        <td>
+                          <label for="recTelefono">Teléfono *</label><br />
+                          <input
+                            id="recTelefono"
+                            name="telefono"
+                            type="tel"
+                            required
+                            pattern="[0-9\s]{6,}"
+                            placeholder="999 999 999"
+                            size="40"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                          <label for="recEmail">Correo electrónico *</label
+                          ><br />
+                          <input
+                            id="recEmail"
+                            name="email"
+                            type="email"
+                            required
+                            size="60"
+                          />
+                        </td>
+                      </tr>
+                    </table>
+
+                    <br />
+                    <input type="submit" value="Continuar" />
+                  </form>
+                </td>
+              </tr>
+            </table>
+           
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#2B2B2B">
+      <tr>
+        <td align="center"><font color="#CCCCCC">© 2025 Café Aroma</font></td>
+      </tr>
+    </table>
+  </body>
 </html>
-
