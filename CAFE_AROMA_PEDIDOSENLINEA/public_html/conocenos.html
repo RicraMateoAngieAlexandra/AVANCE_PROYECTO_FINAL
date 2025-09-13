@@ -1,0 +1,191 @@
+ <!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+    <style> 
+    .menu {
+  background: #482704;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #f5d4a4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu ul {
+    flex-direction: column;
+    background: #603a14;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: none;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu.active ul {
+    display: flex;
+  }
+}
+
+
+
+    </style>
+  </head>
+<body>   
+  <nav class="menu">
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+    <span>Café Aroma</span>
+    <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
+  </div>
+
+  <ul class="links">
+    <li><a href="conocenos.html">Conocenos</a></li>
+    <li><a href="reclamaciones.html">Reclamos</a></li>
+    <li><a href="sugerencias.html">Sugerencias</a></li>
+    <li><a href="ubicanos.html">Ubicanos</a></li>
+  </ul>
+</nav>
+
+      
+ <table
+                       width="100%"
+                       cellpadding="10"
+                       cellspacing="0"
+                       style="background-color: #c4a484"
+                       border="0">
+                       <tr>
+                         <td colspan="2" align="center" style="font-family: 'georgia', serif; font-size: 28px;font-weight: bold;">
+                           <font size="+2.5"><b>Conoce Nuestros Cafes ☕🌿</b></font>
+                         </td>
+                       <tr>
+                         <td colspan="2" align="center">
+                           <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                             <figure style="margin:0;">
+                               <img src="https://s3.ppllstatics.com/diariovasco/www/multimedia/2024/11/13/espresso-RrCckvN0LEAFk54KAQQPcXM-1200x840@Diario%20Vasco.jpg" alt="Café espresso" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px px #cf2762;">
+                               <figcaption>Café Espresso</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://cafeselcriollo.com/wp-content/uploads/2022/04/que-es-un-cafe-latte-como-preparar-cafe-latte-macchiato-cafes-el-criollo.jpg" alt="Café latte" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #f4a3b2;">
+                               <figcaption>Café Latte</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cappuccino_in_original.jpg/1200px-Cappuccino_in_original.jpg" alt="Café capuchino" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #e1b495;">
+                               <figcaption>Capuchino</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://excelso77.com/wp-content/uploads/2024/05/por-que-el-cafe-americano-se-llama-asi-te-lo-contamos.webp" alt="Café americano" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #d98046;">
+                               <figcaption>Americano</figcaption>
+                             </figure>
+                           </div>
+                         </td>
+                       </tr>
+                     </table>
+                     <table
+                       width="100%"
+                       cellpadding="10"
+                       cellspacing="0"
+                       style="background-color: #EEC9C5"
+                       border="0">
+                       <tr>
+                         <td colspan="2" align="center" style="font-family: 'georgia', serif; font-size: 28px; font-weight: bold;">
+                           <font size="+2.5"><b>Conoce Nuestros Postres 🍰</b></font>
+                         </td>
+                       <tr>
+                         <td colspan="2" align="center">
+                           <div style="display:flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                             <figure style="margin:0;">
+                               <img src="https://www.jocooks.com/wp-content/uploads/2018/11/cheesecake-1-22.jpg" alt="Cheesecake" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px px #cf2762;">
+                               <figcaption>Cheesecake</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://elmundodelchef.com/wp-content/uploads/2024/04/flan-uno-de-los-postres-de-cafeteria-colocado-en-plato-de-porcelana-sobre-una-mesa-de-cocina-1024x497.webp" alt="Flan" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #f4a3b2;">
+                               <figcaption>Flan</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://www.paulinacocina.net/wp-content/uploads/2020/01/receta-de-tiramisu-facil-y-economico-1740483918.jpg" alt="Tiramisú" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #e1b495;">
+                               <figcaption>Tiramisú</figcaption>
+                             </figure>
+                             <figure style="margin: 0;">
+                               <img src="https://content-cocina.lecturas.com/medio/2021/07/12/pastel-de-zanahoria-con-buttercream_f8c9e717_1200x1200.jpg" alt="Pastel de zanahoria" width="200" height="150" style="border-radius: 8px; box-shadow: 0 2px 8px #d98046;">
+                               <figcaption>Pastel de Zanahoria</figcaption>
+                             </figure>
+                           </div>
+                         </td>
+                       </tr>
+                     </table>
+                     <table
+                        width="100%"
+                        cellpadding="10"
+                        cellspacing="0"
+                        style="background-color: #EFE2D0"
+                        border="0">
+                        <tr>
+                          <td colspan="2" align="center">
+                            <font size="+2.5"><b>Nuestros Servicios ⭐</b></font>
+                          </td>
+                        <tr>
+                          <td colspan="2" align="center">
+                            <ul style="text-align: left; display: inline-block; margin-top: -15px;">
+                              <li>Atencion de calidad garantizada 👌🤝</li>
+                              <li>Pedidos en línea y entrega a domicilio 🚚📱</li>
+                              <li>Ambiente acogedor para que te sientas en completa comodidad 🪑📶</li>
+                              <li>Pagos faciles y programas para nuestros clientes mas fieles🎁💳</li>
+                            </ul>
+                          </td>
+                        </tr>
+                     </table>
+                    </td>
+                    </tr>    
+                </td>
+              </tr>
+            </table>
+            </body>
+      <header>
+  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+    <tr>
+      <td align="center">
+        <font color="#FFFFFF" size="-1"
+          >© 2024 Café Aroma. Todos los derechos reservados.</font
+        >
+      </td>
+    </tr>
+  </table>
+</header>
+</html>
