@@ -230,107 +230,177 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <br />
 
-            <table
-              width="100%"
-              cellpadding="12"
-              cellspacing="0"
-              bgcolor="#FFFFFF"
-              border="0"
-            
-              <tr>
-                <td>
-                  <font size="+2"><b>Libro de reclamaciones</b></font>
-                  <p><b>Identificación del consumidor reclamante</b></p>
+            <!-- ====== LIBRO DE RECLAMACIONES (BLOQUE COMPLETO PARA PEGAR) ====== -->
+<table
+  width="100%"
+  cellpadding="12"
+  cellspacing="0"
+  bgcolor="#FFFFFF"
+  border="0">
+  <tr>
+    <td>
+      <font size="+2"><b>Libro de reclamaciones</b></font>
+      <p><b>Identificación del consumidor reclamante</b></p>
 
-                  <form
-                    id="form-reclamos"
-                    onsubmit="if(this.checkValidity()){alert('Datos iniciales registrados.'); this.reset();} return false;"
-                    novalidate
-                  >
-                    <table width="100%" cellpadding="6">
-                      <tr>
-                        <td width="50%">
-                          <label for="recNombre">Nombre *</label><br />
-                          <input
-                            id="recNombre"
-                            name="nombre"
-                            type="text"
-                            required
-                            minlength="2"
-                            maxlength="80"
-                            size="40"
-                          />
-                        </td>
-                        <td width="50%">
-                          <label for="recDomicilio">Domicilio *</label><br />
-                          <input
-                            id="recDomicilio"
-                            name="domicilio"
-                            type="text"
-                            required
-                            size="40"
-                          />
-                        </td>
-                      </tr>
+      <form
+        id="form-reclamos"
+        onsubmit="if(this.checkValidity()){alert('Hoja de reclamación enviada.'); this.reset();} return false;"
+        novalidate>
 
-                      <tr>
-                        <td>
-                          <label for="recDni">DNI/CE *</label><br />
-                          <input
-                            id="recDni"
-                            name="dni"
-                            type="text"
-                            required
-                            minlength="8"
-                            maxlength="12"
-                            size="40"
-                          />
-                        </td>
-                        <td>
-                          <label for="recTelefono">Teléfono *</label><br />
-                          <input
-                            id="recTelefono"
-                            name="telefono"
-                            type="tel"
-                            required
-                            pattern="[0-9\s]{6,}"
-                            placeholder="999 999 999"
-                            size="40"
-                          />
-                        </td>
-                      </tr>
+        <!-- Identificación del reclamante -->
+        <table width="100%" cellpadding="6">
+          <tr>
+            <td width="50%">
+              <label for="recNombre">Nombre *</label><br />
+              <input
+                id="recNombre"
+                name="nombre"
+                type="text"
+                required
+                minlength="2"
+                maxlength="80"
+                size="40" />
+            </td>
+            <td width="50%">
+              <label for="recDomicilio">Domicilio *</label><br />
+              <input
+                id="recDomicilio"
+                name="domicilio"
+                type="text"
+                required
+                size="40" />
+            </td>
+          </tr>
 
-                      <tr>
-                        <td colspan="2">
-                          <label for="recEmail">Correo electrónico *</label
-                          ><br />
-                          <input
-                            id="recEmail"
-                            name="email"
-                            type="email"
-                            required
-                            size="60"
-                          />
-                        </td>
-                      </tr>
-                    </table>
+          <tr>
+            <td>
+              <label for="recDni">DNI/CE *</label><br />
+              <input
+                id="recDni"
+                name="dni"
+                type="text"
+                required
+                minlength="8"
+                maxlength="12"
+                size="40" />
+            </td>
+            <td>
+              <label for="recTelefono">Teléfono *</label><br />
+              <input
+                id="recTelefono"
+                name="telefono"
+                type="tel"
+                required
+                pattern="[0-9\s]{6,}"
+                placeholder="999 999 999"
+                size="40" />
+            </td>
+          </tr>
 
-                    <br />
-                    <input type="submit" value="Continuar" />
-                  </form>
-                </td>
-              </tr>
-            </table>
-           
-          </td>
-        </tr>
-      </table>
-    </center>
+          <tr>
+            <td colspan="2">
+              <label for="recEmail">Correo electrónico *</label><br />
+              <input
+                id="recEmail"
+                name="email"
+                type="email"
+                required
+                size="60" />
+            </td>
+          </tr>
+        </table>
 
-    <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#2B2B2B">
-      <tr>
-        <td align="center"><font color="#CCCCCC">© 2025 Café Aroma</font></td>
-      </tr>
-    </table>
-  </body>
+        <hr size="1" color="#DDDDDD" />
+
+        <!-- Identificación del bien contratado -->
+        <p><b>Identificación del bien contratado</b></p>
+        <table width="100%" cellpadding="6">
+          <tr>
+            <td width="50%">
+              <label for="recBien">Tipo de Bien</label><br />
+              <select id="recBien" name="bien">
+                <option value="">Seleccionar tipo de bien</option>
+                <option>Bebida</option>
+                <option>Postre</option>
+              </select>
+            </td>
+            <td width="50%">
+              <label for="recMonto">Monto Reclamado *</label><br />
+              <input
+                id="recMonto"
+                name="monto"
+                type="number"
+                min="0"
+                step="0.10"
+                required
+                placeholder="S/ 0.00"
+                size="40" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <label for="recDescripcion">Descripción *</label><br />
+              <input
+                id="recDescripcion"
+                name="descripcion"
+                type="text"
+                required
+                minlength="20"
+                maxlength="1500"
+                size="80" />
+            </td>
+          </tr>
+        </table>
+        <hr size="1" color="#DDDDDD" />
+
+        <!-- Detalle de la reclamación y pedido -->
+        <p><b>Detalle de la reclamación y pedido del consumidor</b></p>
+        <table width="100%" cellpadding="6">
+          <tr>
+            <td width="50%">
+              <label for="recTipo">Tipo de Reclamación *</label><br />
+              <select id="recTipo" name="tipo" required>
+                <option value="">Seleccionar...</option>
+                <option value="Queja">Queja</option>
+                <option value="Reclamo">Reclamo</option>
+              </select>
+            </td>
+            <td width="50%">
+              <label for="recPedido">Pedido *</label><br />
+              <input
+                id="recPedido"
+                name="pedido"
+                type="text"
+                required
+                placeholder="¿Qué solicita el consumidor?"
+                size="40" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <label for="recDetalle">Detalle *</label><br />
+              <textarea
+                id="recDetalle"
+                name="detalle"
+                rows="4"
+                cols="80"
+                required
+                minlength="20"
+                maxlength="1500"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input id="recDeclaro" type="checkbox" required />
+              <label for="recDeclaro">Declaro que la información consignada es veraz.</label>
+            </td>
+          </tr>
+        </table>
+        <br />
+        <input type="submit" value="ENVIAR HOJA DE RECLAMACIÓN" />
+      </form>
+    </td>
+  </tr>
+</table>
+</body>
 </html>
