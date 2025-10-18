@@ -1,15 +1,55 @@
-.grid-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 1em;
-  }
-
 .item {
-    padding: 2em;
-    background-color: var(--primary-color);
-    color: rgb(15, 45, 196);
-    text-align: center;
-    border-radius: 8px;
-    font-size: 1.5rem;
+  padding: 2em;
+  background-color: var(--primary-color);
+  color: rgb(15, 45, 196);
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out; /* Animación de entrada */
+}
+
+.item:hover {
+  transform: scale(1.05); /* Aumenta el tamaño */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+  animation: bounce 0.6s ease-in-out; /* Rebote en hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Entrada desde abajo */
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+input[type="submit"] {
+  background-color: #482704;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #603a14;
+  transform: scale(1.1); /* Hace que el botón se agrande */
+}
