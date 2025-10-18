@@ -14,8 +14,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
     <style> 
     .menu {
-  background: #ebcba7;
-  color: #000000;
+  background: #462606f0;
+  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,13 +36,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 }
 
 .menu a {
-  color: rgb(0, 0, 0);
+  color: rgb(251, 247, 247);
   text-decoration: none;
   font-weight: bold;
 }
 
 .menu a:hover {
-  color: #473110;
+  color: #ebb96c;
 }
 
 /* Responsive */
@@ -62,6 +62,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     display: flex;
   }
 }
+/* Banner Principal */
 .banner-principal {
   position: relative;
   width: 100%;
@@ -69,7 +70,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   overflow: hidden;
   border-radius: 0px;
 }
-
+/* Video de fondo */
 .video-fondo {
   position: absolute;
   top: 0;
@@ -81,6 +82,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   filter: brightness(70%); 
 }
 
+/* Texto sobre el banner */
 .texto-banner {
   position: relative;
   z-index: 2;
@@ -102,7 +104,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
-
+/* Galería Secundaria */
 .galeria-secundaria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -117,6 +119,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   border-radius: 0px;
   transition: none;
 }
+/* Título de la sección Nuestros Cafés */
 .titulo-cafes {
   text-align: center;
   background: rgba(40, 18, 6, 0.8); 
@@ -142,6 +145,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   color: #e8c7a1; 
 }
 
+/* Sección ¿Quienes somos?*/
+.nuestro-cafe {
+  background: linear-gradient(to bottom, #a9743e, #ffbe8d); 
+  color: #3e2c1c;
+  padding: 60px 20px;
+}
+
+.contenido-cafe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.texto-cafe {
+  flex: 1;
+  min-width: 300px;
+}
+
+.texto-cafe h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.texto-cafe h2 {
+  color: #3e2c1c;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.texto-cafe p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.imagen-cafe {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.imagen-cafe img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+}
+
    body {
       font-family: 'Poppins', sans-serif;
      background-image: url('https://media.istockphoto.com/id/1712787585/es/vector/patr%C3%B3n-de-onda-marr%C3%B3n-oscuro.jpg?s=612x612&w=0&k=20&c=R9G2Pj3W3Tg2k541hZ4zulsU76EYf_kHaAhtuXJtiJM=');
@@ -153,6 +207,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
      padding: 40px;
     }
 
+    /* Catálogo de productos */
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -233,7 +288,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   </ul>
  </nav>
   </header>
-  <div class="banner-principal">
+
+
+<div class="banner-principal">
   <video autoplay muted loop playsinline class="video-fondo">
     <source src="videos/Cafe.mp4" type="video/mp4">
     Tu navegador no soporta videos en HTML5.
@@ -244,16 +301,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   </div>
 </div>
 
+
 <div class="galeria-secundaria">
   <img src="https://images.adsttc.com/media/images/55d5/1f19/e58e/ce20/e900/01aa/large_jpg/PORTADA_Pd___Mtv_Medialunas_Calentitas_ph_G_Viramonte_005.jpg?1440030480" alt="Panadería artesanal">
   <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428894095266287798/cafeteria.png?ex=68f428d3&is=68f2d753&hm=f7ae2046f6545ca1effe6ca6ed7d64210619f1a1c78949083d788008f23cfa0c&" alt="Desayuno delicioso">
   <img src="https://img.freepik.com/fotos-premium/varios-dulces-postres-tienda-cafe-muestran-cerca_759575-6300.jpg" alt="Pastelería dulce">
 </div>
+<div style="height: 20px;"></div>
+
+<section class="nuestro-cafe">
+  <div class="contenido-cafe">
+    <div class="texto-cafe">
+      <h2>CAFÉ 100% NATURAL</h2>
+      <h1>¿QUIENES SOMOS?</h1>
+      <p>En Café Aroma somos amantes del buen café y apasionados por compartir su verdadera esencia.</p>
+      <p>Somos una marca apasionada por el buen café, comprometida con ofrecer un producto de alta calidad, trabajado con dedicación desde el grano hasta tu taza.</p>
+      <p>Experimenta un perfil en taza que resalta notas de chocolate, cuerpo cremoso, miel de maple y post gusto a caramelo.</p>
+      <p>Cada taza es una obra maestra sensorial, invitándote a disfrutar de una experiencia auténtica y deliciosa en cada sorbo.</p>
+    </div>
+    <div class="imagen-cafe">
+      <img src="img/Quienes-Somos.png" alt="fondo">
+    </div>
+  </div>
+</section>
+
+
 <section class="titulo-cafes">
   <h2>Nuestros Cafés</h2>
   <p>Sabores que despiertan tus sentidos</p>
 </section>
-
 <div class="catalogo">
     <div class="tarjeta">
       <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428899753122463804/Cafe-Espresso.png?ex=68f42e18&is=68f2dc98&hm=3559cbbe35d3778528441498d404311725890c4af87a06bf611170555381cba0&" alt="Frappé mocha">
@@ -319,6 +395,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       <h3>Café Avellana</h3>
       <p>espresso con jarabe de avellanas y espuma cremosa, con un aroma cálido y sabor a nuez.</p>
       <div class="precio">S/13.50</div>
+    </div>
+    <div style="height: 20px;"></div>
+  </div>
+
+  
+  <section class="titulo-cafes">
+  <h2>Nuestros Postres</h2>
+  <p>Para endulzar mas que tu paladar.</p>
+  </section>
+  <div class="catalogo">
+    <div class="tarjeta">
+      <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428956352772046959/a-slice-of-chocolate-cake-free-png.png?ex=68f462cf&is=68f3114f&hm=83deef9ee56373264d2a68405c803d31dbe96c7e26ba56456b60dbd33cf5793e&" alt="Frappé mocha">
+      <h3>Pastel de chocolate</h3>
+      <p>Bizcocho húmedo con cobertura espesa de ganache. Un postre intenso para los amantes del cacao.</p>
+      <div class="precio">S/12.00</div> 
+    </div>
+
+    <div class="tarjeta">
+      <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428957658823524454/elegant-caramel-flan-dessert-on-transparent-background-png.png?ex=68f46406&is=68f31286&hm=3a167ebec2815f3e3b77af2de21644db898b7b4db7ec7b1336c0f2e045a832c4&" alt="Frappé caramel">
+      <h3>Flan de Tiramisu</h3>
+      <p>Postre clásico con textura suave y caramelo dorado hecho en casa. Servido frío.</p>
+      <div class="precio">S/8.00</div>
+    </div>
+
+    <div class="tarjeta">
+      <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428956603314344016/piece-of-apple-pie-free-png.png?ex=68f4630a&is=68f3118a&hm=c09ba4f0f9c0832e93ac933ba579e370aa1541494a4256895d3ca86ac7ab8869&" alt="Frappé de café">
+      <h3>Pie de manzana</h3>
+      <p>Relleno cremoso con jugo natural de limón, base crocante y suave merengue tostado.</p>
+      <div class="precio">S/9.50</div>
+    </div>
+
+    <div class="tarjeta">
+      <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428958076429668453/delicious-3d-stack-of-pink-macarons-free-png.png?ex=68f4646a&is=68f312ea&hm=8851cb4b0efc3085204e51e090367ef666a6b1369b55308d58bda11a766888af&" alt="Frappé oreo">
+      <h3>Macarrons</h3>
+      <p>Pequeños, coloridos y delicados… un bocado de felicidad en cada sabor.</p>
+      <div class="precio">S/10.00</div>
+    </div>
+
+    <div class="tarjeta">
+      <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428956820583616532/pngtree-yogurt-with-granola-and-berries-in-bowl-png-image_12822870.png?ex=68f4633e&is=68f311be&hm=146c289689691b935b51716d4d50020ca0887f068352c66a99feb15bd0eed05c&" alt="Frappé algarrobina">
+      <h3>Yogur con granola y vallas</h3>
+      <p>Cremoso yogurt natural con granola artesanal, trozos de fruta fresca y un toque de miel.</p>
+      <div class="precio">S/11.00</div>
+    </div>
+
     </div>
     <div style="height: 30px;"></div>
   </div>
