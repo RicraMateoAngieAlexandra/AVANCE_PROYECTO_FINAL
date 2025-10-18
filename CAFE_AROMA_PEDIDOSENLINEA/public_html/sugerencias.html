@@ -5,171 +5,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    
+  <meta charset="UTF-8" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/logo.png">
+   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
-    <style> 
-    .menu {
-  background: #482704;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
+<body>
+   <nav class="menu">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+      <span>Café Aroma</span>
+      <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
+    </div>
+    <!-- Icono de menú móvil insertado -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="links">
+      <li><a href="conocenos.html">Conocenos</a></li>
+      <li><a href="reclamaciones.html">Reclamos</a></li>
+      <li><a href="sugerencias.html">Sugerencias</a></li>
+      <li><a href="ubicanos.html">Ubícanos</a></li>
+    </ul>
+  </nav>
 
-.menu .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  color: #f5d4a4;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    background: #603a14;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-    width: 200px;
-    padding: 10px;
-  }
-
-  .menu.active ul {
-    display: flex;
-  }
-}
-
-
-
-    </style>
-  </head>
-<body>   
-  <nav class="menu">
-  <div class="logo">
-    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
-    <span>Café Aroma</span>
-    <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
-  </div>
-
-  <ul class="links">
-    <li><a href="conocenos.html">Conocenos</a></li>
-    <li><a href="reclamaciones.html">Reclamos</a></li>
-    <li><a href="sugerencias.html">Sugerencias</a></li>
-    <li><a href="ubicanos.html">Ubicanos</a></li>
-  </ul>
-</nav>
-
-      
 <table width="92%" cellpadding="10" cellspacing="0">
+    <tr><td>
+      <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF">
         <tr>
-          <td>
-            <table
-              width="100%"
-              cellpadding="12"
-              cellspacing="0"
-              bgcolor="#FFFFFF"
-              border="0"
-            >
-              <tr>
-                <td width="35%" valign="top" bgcolor="#F2F2F2">
-                  <font color="#4A148C"><b>Sugerencias</b></font
-                  ><br />
-                  <small>Coloque sus sugerencias</small>
-                  <hr size="1" color="#DDDDDD" />
-                  <p>
-                    📍 <b>Dirección</b><br />
-                    Av. Arequipa 1234, Jesús María – Lima
-                  </p>
-                  <p>
-                    ☎️ <b>Teléfono</b><br />
-                    945123789<br />
-                    960505452
-                  </p>
-                  <p>
-                    ✉️ <b>Correo</b><br />
-                    contacto@cafearoma.com
-                  </p>
-                </td>
-
-                <td width="65%" valign="top">
-                  <form
-                    id="form-sugerencias"
-                    onsubmit="if(this.checkValidity()){alert('¡Gracias! Sugerencia enviada.'); this.reset();} return false;"
-                    novalidate
-                  >
-                    <label for="sugNombre">Nombre</label><br />
-                    <input
-                      id="sugNombre"
-                      name="nombre"
-                      type="text"
-                      required
-                      minlength="2"
-                      maxlength="60"
-                      size="48"
-                    /><br /><br />
-
-                    <label for="sugEmail">Email</label><br />
-                    <input
-                      id="sugEmail"
-                      name="email"
-                      type="email"
-                      required
-                      size="48"
-                    /><br /><br />
-
-                    <label for="sugMensaje">Mensaje</label><br />
-                    <textarea
-                      id="sugMensaje"
-                      name="mensaje"
-                      rows="4"
-                      cols="50"
-                      required
-                      minlength="10"
-                      maxlength="1000"
-                    ></textarea
-                    ><br /><br />
-
-                    <input type="submit" value="Enviar" />
-                  </form>
-                </td>
-              </tr>
-            </table>
-
-            <br />
-</body>
-<header>
-  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
-    <tr>
-      <td align="center">
-        <font color="#FFFFFF" size="-1"
-          >© 2024 Café Aroma. Todos los derechos reservados.</font
-        >
-      </td>
-    </tr>
+          <td width="35%" valign="top" bgcolor="#F2F2F2">
+            <font color="#4A148C"><b>Sugerencias</b></font><br>
+            <small>Coloque sus sugerencias</small>
+            <hr size="1" color="#DDDDDD">
+            <p>📍 <b>Dirección</b><br>Av. Arequipa 1234, Jesús María – Lima</p>
+            <p>☎️ <b>Teléfono</b><br>945123789<br>960505452</p>
+            <p>✉️ <b>Correo</b><br>contacto@cafearoma.com</p>
+          </td>
+          <td width="65%" valign="top">
+            <form id="form-sugerencias" ...>
+              <label for="sugNombre">Nombre</label><br>
+              <input id="sugNombre" type="text" ...><br><br>
+              <label for="sugEmail">Email</label><br>
+              <input id="sugEmail" type="email" ...><br><br>
+              <label for="sugMensaje">Mensaje</label><br>
+              <textarea id="sugMensaje" rows="4" ...></textarea><br><br>
+              <input type="submit" value="Enviar">
+            </form>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td></tr>
   </table>
-</header>
+
+  <footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr><td align="center">
+        <font color="#FFFFFF" size="-1">© 2025 Café Aroma. Todos los derechos reservados.</font>
+      </td></tr>
+    </table>
+  </footer>
+</body>
 </html>

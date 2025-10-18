@@ -4,156 +4,85 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    
+
+<head>
+  <meta charset="UTF-8" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/logo.png">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
-    <style> 
-    .menu {
-  background: #482704;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.menu .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  color: #f5d4a4;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    background: #603a14;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-    width: 200px;
-    padding: 10px;
-  }
-
-  .menu.active ul {
-    display: flex;
-  }
-}
-
-
-
-    </style>
-  </head>
-
-      <body>   
-  <nav class="menu">
+   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+</head>
+<nav class="menu">
   <div class="logo">
-    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px;">
     <span>Café Aroma</span>
     <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
   </div>
 
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
   <ul class="links">
-    <li><a href="conocenos.html">Conocenos</a></li>
+    <li><a href="conocenos.html">Conócenos</a></li>
     <li><a href="reclamaciones.html">Reclamos</a></li>
     <li><a href="sugerencias.html">Sugerencias</a></li>
-    <li><a href="ubicanos.html">Ubicanos</a></li>
+    <li><a href="ubicanos.html">Ubícanos</a></li>
   </ul>
 </nav>
 
-
-<!-- UBÍCANOS / CONTÁCTENOS -->
-<table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF" border="0">
-  <tr>
-    <td>
-      <font size="+2"><b>📍 Ubícanos / Contáctenos</b></font>
-      <p>Estamos para ayudarte — visítanos o escríbenos</p>
-
-      <table width="100%" cellpadding="8">
-        <tr>
-          <!-- Columna 1 -->
-          <td width="50%" valign="top" bgcolor="#F9F9F9" style="padding: 10px;">
-            <p><b>Dirección:</b><br />Av. Arequipa 1234, Lima 15046</p>
-            <p><b>Teléfono:</b><br /><a href="tel:+51945123789">(+51) 945 123 789</a></p>
-            <p><b>Correo:</b><br /><a href="mailto:contacto@cafearoma.com">contacto@cafearoma.com</a></p>
-
-            <p>
-              <a href="tel:+51945123789">📞 Llamar</a> |
-              <a target="_blank" href="https://wa.me/51945123789">💬 WhatsApp</a> |
-              <a href="mailto:contacto@cafearoma.com">📧 Correo</a>
-            </p>
-
-            <!-- Mapa adaptado -->
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5126676931195!2d-77.0384479260467!3d-12.077014942462418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f2fd181903%3A0x2502bb225036214d!2sAv.%20Arequipa%201234%2C%20Lima%2015046!5e0!3m2!1ses-419!2spe!4v1757759773942!5m2!1ses-419!2spe" 
-              width="100%" 
-              height="250" 
-              style="border:0; border-radius:8px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </td>
-
-          <!-- Columna 2 -->
-          <td width="50%" valign="top" style="padding: 10px;">
-            <form
-              id="form-contacto"
-              onsubmit="if(this.checkValidity()){ alert('Gracias — mensaje enviado.'); this.reset(); } return false;"
-              novalidate>
-              <label for="ctcNombre">Nombre *</label><br />
-              <input id="ctcNombre" name="nombre" type="text" required minlength="2" maxlength="80" size="40" /><br /><br />
-
-              <label for="ctcEmail">Email *</label><br />
-              <input id="ctcEmail" name="email" type="email" required size="40" /><br /><br />
-
-              <label for="ctcMensaje">Mensaje *</label><br />
-              <textarea id="ctcMensaje" name="mensaje" rows="5" cols="42" required minlength="10" maxlength="1200"></textarea><br /><br />
-
-              <input type="submit" value="Enviar mensaje" />
-            </form>
-
-            <p><small><b>Horario de atención:</b><br />Lun – Vie: 08:00 – 20:00 | Sáb: 09:00 – 15:00</small></p>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
-</body>
-<header>
-  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+  <!-- Sección Ubícanos / Contáctenos -->
+  <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF">
     <tr>
-      <td align="center">
-        <font color="#FFFFFF" size="-1"
-          >© 2024 Café Aroma. Todos los derechos reservados.</font
-        >
+      <td>
+        <font size="+2"><b>📍 Ubícanos / Contáctenos</b></font>
+        <p>Estamos para ayudarte — visítanos o escríbenos</p>
+        <table width="100%" cellpadding="8">
+          <tr>
+            <!-- Columna 1: Información de contacto -->
+            <td width="50%" valign="top" bgcolor="#F9F9F9" style="padding: 10px;">
+              <p><b>Dirección:</b><br>Av. Arequipa 1234, Lima 15046</p>
+              <p><b>Teléfono:</b><br><a href="tel:+51945123789">(+51) 945 123 789</a></p>
+              <p><b>Correo:</b><br><a href="mailto:contacto@cafearoma.com">contacto@cafearoma.com</a></p>
+              <p>
+                <a href="tel:+51945123789">📞 Llamar</a> |
+                <a href="https://wa.me/51945123789" target="_blank">💬 WhatsApp</a> |
+                <a href="mailto:contacto@cafearoma.com">📧 Correo</a>
+              </p>
+              <!-- Mapa de Google embebido -->
+              <iframe src="https://www.google.com/maps/embed?..." width="100%" height="250"
+                style="border:0; border-radius:8px;" allowfullscreen loading="lazy"></iframe>
+            </td>
+            <!-- Columna 2: Formulario de contacto -->
+            <td width="50%" valign="top" style="padding: 10px;">
+              <form id="form-contacto" onsubmit=R"...alert('Gracias...')..." novalidate>
+                <label for="ctcNombre">Nombre *</label><br>
+                <input id="ctcNombre" name="nombre" type="text" required minlength="2" maxlength="80" size="40"><br><br>
+                <label for="ctcEmail">Email *</label><br>
+                <input id="ctcEmail" name="email" type="email" required size="40"><br><br>
+                <label for="ctcMensaje">Mensaje *</label><br>
+                <textarea id="ctcMensaje" name="mensaje" rows="5" cols="42" required minlength="10"
+                  maxlength="1200"></textarea><br><br>
+                <input type="submit" value="Enviar mensaje">
+              </form>
+              <p><small><b>Horario de atención:</b><br>Lun – Vie: 08:00 – 20:00 | Sáb: 09:00 – 15:00</small></p>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
-</header>
+
+  <footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr>
+        <td align="center">
+          <font color="#FFFFFF" size="-1">© 2025 Café Aroma. Todos los derechos reservados.</font>
+        </td>
+      </tr>
+    </table>
+  </footer>
+</body>
+
 </html>

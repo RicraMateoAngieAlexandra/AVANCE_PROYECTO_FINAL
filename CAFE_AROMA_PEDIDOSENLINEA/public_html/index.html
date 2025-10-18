@@ -4,86 +4,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/logo.png">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
-    <style> 
-    .menu {
-  background: #482704;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.menu .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  color: #f5d4a4;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    background: #603a14;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-    width: 200px;
-    padding: 10px;
-  }
-
-  .menu.active ul {
-    display: flex;
-  }
-}
-
-
-
-    </style>
-  </head>
-
-  <body>   
+<head>
+    ... 
+    <link rel="stylesheet" href="style.css">  <!-- Enlace a CSS externo -->
+    <!-- Eliminado: <style>... estilos de .menu ...</style> -->
+</head>
+<body>
   <nav class="menu">
-  <div class="logo">
-    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
-    <span>Café Aroma</span>
-    <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
-  </div>
-
-  <ul class="links">
-    <li><a href="conocenos.html">Conocenos</a></li>
-    <li><a href="reclamaciones.html">Reclamos</a></li>
-    <li><a href="sugerencias.html">Sugerencias</a></li>
-    <li><a href="ubicanos.html">Ubicanos</a></li>
-  </ul>
-</nav>
-
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+      <span>Café Aroma</span>
+      <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
+    </div>
+    <!-- Icono de menú móvil insertado -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="links">
+      <li><a href="conocenos.html">Conocenos</a></li>
+      <li><a href="reclamaciones.html">Reclamos</a></li>
+      <li><a href="sugerencias.html">Sugerencias</a></li>
+      <li><a href="ubicanos.html">Ubícanos</a></li>
+    </ul>
+  </nav>
+  
       </td>
       </tr>
     </table>
@@ -128,6 +71,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                        </tr>
                      </table>
 
+  <!-- Footer movido dentro de body y corregido a etiqueta <footer> -->
+  <footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr><td align="center">
+        <font color="#FFFFFF" size="-1">© 2025 Café Aroma. Todos los derechos reservados.</font>
+      </td></tr>
+    </table>
+  </footer>
 </body>
 <header>
   <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">

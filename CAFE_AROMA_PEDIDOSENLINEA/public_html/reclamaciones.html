@@ -1,166 +1,62 @@
+
+
  <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    
+ <head>
+  <meta charset="UTF-8" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/logo.png">
+   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
-    <style> 
-    .menu {
-  background: #482704;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.menu .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.menu a:hover {
-  color: #f5d4a4;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    background: #603a14;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-    width: 200px;
-    padding: 10px;
-  }
-
-  .menu.active ul {
-    display: flex;
-  }
-}
-
-
-
-    </style>
-  </head>
-<body>   
-  <nav class="menu">
-  <div class="logo">
-    <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
-    <span>Café Aroma</span>
-    <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
-  </div>
-
-  <ul class="links">
-    <li><a href="conocenos.html">Conocenos</a></li>
-    <li><a href="reclamaciones.html">Reclamos</a></li>
-    <li><a href="sugerencias.html">Sugerencias</a></li>
-    <li><a href="ubicanos.html">Ubicanos</a></li>
-  </ul>
-</nav>
-
-                 <!-- ====== LIBRO DE RECLAMACIONES (BLOQUE COMPLETO PARA PEGAR) ====== -->
-<table
-  width="100%"
-  cellpadding="12"
-  cellspacing="0"
-  bgcolor="#FFFFFF"
-  border="0">
-  <tr>
-    <td>
+<body>
+   <nav class="menu">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+      <span>Café Aroma</span>
+      <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
+    </div>
+    <!-- Icono de menú móvil insertado -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="links">
+      <li><a href="conocenos.html">Conocenos</a></li>
+      <li><a href="reclamaciones.html">Reclamos</a></li>
+      <li><a href="sugerencias.html">Sugerencias</a></li>
+      <li><a href="ubicanos.html">Ubícanos</a></li>
+    </ul>
+  </nav>
+  <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF">
+    <tr><td>
       <font size="+2"><b>Libro de reclamaciones</b></font>
       <p><b>Identificación del consumidor reclamante</b></p>
-
-      <form
-        id="form-reclamos"
-        onsubmit="if(this.checkValidity()){alert('Hoja de reclamación enviada.'); this.reset();} return false;"
-        novalidate>
-
-        <!-- Identificación del reclamante -->
+      <form id="form-reclamos" ...>
         <table width="100%" cellpadding="6">
           <tr>
-            <td width="50%">
-              <label for="recNombre">Nombre *</label><br />
-              <input
-                id="recNombre"
-                name="nombre"
-                type="text"
-                required
-                minlength="2"
-                maxlength="80"
-                size="40" />
-            </td>
-            <td width="50%">
-              <label for="recDomicilio">Domicilio *</label><br />
-              <input
-                id="recDomicilio"
-                name="domicilio"
-                type="text"
-                required
-                size="40" />
-            </td>
+            <td width="50%"><label for="recNombre">Nombre *</label><br>
+                <input id="recNombre" ...></td>
+            <td width="50%"><label for="recDomicilio">Domicilio *</label><br>
+                <input id="recDomicilio" ...></td>
           </tr>
-
+          <!-- ... más filas de campos ... -->
           <tr>
-            <td>
-              <label for="recDni">DNI/CE *</label><br />
-              <input
-                id="recDni"
-                name="dni"
-                type="text"
-                required
-                minlength="8"
-                maxlength="12"
-                size="40" />
-            </td>
-            <td>
-              <label for="recTelefono">Teléfono *</label><br />
-              <input
-                id="recTelefono"
-                name="telefono"
-                type="tel"
-                required
-                pattern="[0-9\s]{6,}"
-                placeholder="999 999 999"
-                size="40" />
-            </td>
+            <td width="50%"><label for="recDni">DNI/CE *</label><br>
+                <input id="recDni" ...></td>
+            <td width="50%"><label for="recTelefono">Teléfono *</label><br>
+                <input id="recTelefono" ...></td>
           </tr>
-
           <tr>
-            <td colspan="2">
-              <label for="recEmail">Correo electrónico *</label><br />
-              <input
-                id="recEmail"
-                name="email"
-                type="email"
-                required
-                size="60" />
-            </td>
+            <td width="50%"><label for="recEmail">Correo electrónico *</label><br>
+                <input id="recEmail" ...></td>
           </tr>
+        
         </table>
 
         <hr size="1" color="#DDDDDD" />
@@ -249,22 +145,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </td>
           </tr>
         </table>
-        <br />
-        <input type="submit" value="ENVIAR HOJA DE RECLAMACIÓN" />
+        <input type="submit" value="ENVIAR HOJA DE RECLAMACIÓN">
+        <td colspan="2">
+
+</td>
       </form>
-    </td>
-  </tr>
-</table>
-</body>
-<header>
-  <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
-    <tr>
-      <td align="center">
-        <font color="#FFFFFF" size="-1"
-          >© 2024 Café Aroma. Todos los derechos reservados.</font
-        >
-      </td>
-    </tr>
+
+    </td></tr>
   </table>
-</header>
+
+  <footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr><td align="center">
+        <font color="#FFFFFF" size="-1">© 2025 Café Aroma. Todos los derechos reservados.</font>
+      </td></tr>
+    </table>
+  </footer>
+</body>
 </html>

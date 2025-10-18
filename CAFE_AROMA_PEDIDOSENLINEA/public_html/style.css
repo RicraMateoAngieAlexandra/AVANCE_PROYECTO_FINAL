@@ -53,3 +53,109 @@ input[type="submit"]:hover {
   background-color: #603a14;
   transform: scale(1.1); /* Hace que el botón se agrande */
 }
+
+
+/* ... estilos existentes ... */
+
+/* Estilos del menú de navegación (antes embebidos en HTML) */
+.menu {
+  background: #482704;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative; /* necesario para el menú móvil absoluto */
+}
+.menu .logo { font-size: 20px; font-weight: bold; }
+.menu ul.links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0; padding: 0;
+}
+.menu ul.links a {
+  color: #fff; text-decoration: none; font-weight: bold;
+}
+.menu ul.links a:hover { color: #ebb96c; }
+
+/* Icono hamburguesa (visible solo en móvil) */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+/* Checkbox toggle del menú (oculto) */
+#menu-toggle { display: none; }
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  /* Mostrar icono hamburguesa y ajustar paddings */
+  .menu-icon { display: block; }
+  .menu { padding: 10px; }  /* reduce padding lateral en móvil */
+
+  /* Menu desplegable en columna (oculto por defecto) */
+  .menu ul.links {
+    flex-direction: column;
+    background: #603a14;
+    position: absolute;
+    top: 50px; right: 10px;
+    width: 200px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+  }
+  .menu ul.links li { margin: 5px 0; }
+
+  /* Mostrar el menú vertical cuando el checkbox está activo */
+  #menu-toggle:checked ~ ul.links { display: flex; }
+
+  /* Ajustes de texto del banner */
+  .texto-banner h1 { font-size: 2.2rem; }
+  .texto-banner p  { font-size: 1.1rem; }
+
+  /* Reducir padding en sección .titulo-cafes */
+  .titulo-cafes { padding: 20px 40px; }
+
+  /* Secciones de columnas apiladas verticalmente */
+  .contenido-cafe { flex-direction: column; text-align: center; }
+  .contenido-cafe .imagen-cafe { margin-top: 20px; }
+
+  /* Tablas/formularios: columnas al 100% ancho (apiladas) */
+  table, tr, td { display: block; width: 100% !important; }
+  td[width], th[width] { width: 100% !important; }
+
+  /* Campos de formulario al 100% de ancho */
+  input[type=text], input[type=email],
+  input[type=tel], input[type=number],
+  textarea, select {
+    width: 100% !important;
+    box-sizing: border-box;
+    margin-bottom: 0.75em;
+  }
+
+  /* Iframes/Videos responsivos */
+  iframe, embed, video {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 480px) {
+  .texto-banner h1 { font-size: 1.8rem; }
+  .texto-banner p  { font-size: 1rem; }
+  .texto-cafe h1  { font-size: 28px; }
+  .texto-cafe p   { font-size: 16px; }
+  .titulo-cafes   { padding: 15px 20px; }
+  .galeria-secundaria img { height: 180px; }
+}
+
+
+
+
+
+
+
