@@ -10,6 +10,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   <!-- Favicon -->
 <link rel="icon" type="image/png" href="img/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
@@ -22,8 +24,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: relative;
+  z-index: 1000;
 }
-
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  position: relative;
+  z-index: 3000;
+}
+.menu-icon span {
+  background-color: #f3f3f3;
+  display: block;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+.menu-icon:hover span {
+  background-color: #f64c82;
+}
 .menu .logo {
   font-size: 20px;
   font-weight: bold;
@@ -47,62 +71,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   color: #ebb96c;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    background: #603a14;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-    width: 200px;
-    padding: 10px;
-  }
 
-  .menu.active ul {
-    display: flex;
-  }
-}
 /* Banner Principal */
 .banner-principal {
   position: relative;
   width: 100%;
   height: 90vh; 
   overflow: hidden;
-  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* Video de fondo */
-.video-fondo {
+
+/* Imagen Fondo */
+.imagen-fondo{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
-  filter: brightness(70%); 
+  z-index: 1; 
 }
-
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.747); 
+  z-index: 2;
+ }
 /* Texto sobre el banner */
 .texto-banner {
-  position: relative;
-  z-index: 2;
+  position:relative;
+  z-index: 3;
   color: #fff;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
+  padding:20px;
 }
 
 .texto-banner h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .texto-banner p {
-
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
@@ -128,7 +144,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   color: #f5e6d0;
   padding: 30px 200px;
   border-radius: 15px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 30px auto; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(3px);
@@ -192,64 +208,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   text-align: center;
 }
 
-.imagen-cafe img {
+.imagen-cafe video{
   width: 100%;
   max-width: 600px;
   border-radius: 20px;
+  object-fit: cover;
 }
 
-   body {
-      font-family: 'Poppins', sans-serif;
-     background-image: url('https://media.istockphoto.com/id/1712787585/es/vector/patr%C3%B3n-de-onda-marr%C3%B3n-oscuro.jpg?s=612x612&w=0&k=20&c=R9G2Pj3W3Tg2k541hZ4zulsU76EYf_kHaAhtuXJtiJM=');
-     background-position: center;  
-     background-repeat: no-repeat;  
-     background-attachment: fixed;  
-     background-size: cover;       
-     margin: 0;
-     padding: 40px;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('https://media.istockphoto.com/id/1712787585/es/vector/patr%C3%B3n-de-onda-marr%C3%B3n-oscuro.jpg?s=612x612&w=0&k=20&c=R9G2Pj3W3Tg2k541hZ4zulsU76EYf_kHaAhtuXJtiJM=');
+  background-position: center;  
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
+  background-size: cover;       
+  margin: 0;
+  padding: 0px;
+}
 
-    /* Catálogo de productos */
-    .catalogo {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      justify-content: center;
-    }
+/* Catálogo de productos */
+.catalogo {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 20px;
+ padding: 40px;
+}
 
-    .tarjeta {
-      background:linear-gradient(180deg, #faf8f8fc 0%, #f8f7f7e2 100%);
-      border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      padding: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+.tarjeta {
+  background:linear-gradient(180deg, #faf8f8fc 0%, #f8f7f7e2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .tarjeta:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(114, 63, 17, 0.996);
+      box-shadow: 0 6px 18px rgba(251, 100, 137, 0.996);
     }
 
     .tarjeta img {
       width: 100%;
-      height: 200px;           
+      height: auto;           
       object-fit: cover;       
-      margin: 0 auto 10px;
       display: block;
       border-radius: 5px;
     }
 
     .tarjeta h3 {
-      font-size: 1.1rem;
-      margin: 10px 0 5px;
+      font-size: 1.4rem;
+      margin: 15px 0 10px;
       color: #000000;
     }
 
     .tarjeta p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #000000;
-      min-height: 40px;
+      padding: 0 10px 20px;
     }
 
     .tarjeta .precio {
@@ -269,13 +285,102 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     }
 
     .tarjeta a:hover {
-      color: #b85c00;
+      color: #fb5f90;
     }
+  @media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+}
+  @media (max-width: 768px) {
+  .banner-principal {
+    height: 60vh;
+  }
+  .texto-banner h1 {
+    font-size: 2rem;
+  }
+
+  .texto-banner p {
+    font-size: 1rem;
+  } 
+}
+@media (max-width: 480px) {
+  .banner-principal {
+    height: 50vh;
+  }
+  .texto-banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .texto-banner p {
+    font-size: 0.9rem;
+  }
+  .catalogo {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+  .tarjeta h3{
+    font-size: 1.2rem;
+  }
+}
 
 
+  @media (max-width: 768px) {
 
+  .contenido-cafe {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
 
-    
+  .imagen-cafe img {
+    max-width: 90%;
+  }
+
+  .catalogo {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+
+  .titulo-cafes {
+    padding: 20px 30px;
+    max-width: 90%;
+  }
+
+  .titulo-cafes h2 {
+    font-size: 2rem;
+  }
+
+  .galeria-secundaria img {
+    height: 180px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    background: #603a14;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: none;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu.active ul {
+    display: flex;
+  }
+}
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
     </style>
   </head>
 <body>
@@ -286,6 +391,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <span>Café Aroma</span>
     <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
   </div>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">
+   <span></span>
+   <span></span>
+   <span></span>
+  </label>
+
 
   <ul class="links">
     <li><a href="conocenos.html">Conocenos</a></li>
@@ -297,28 +409,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   </header>
 
 
-<div class="banner-principal">
-  <video autoplay muted loop playsinline class="video-fondo">
-    <source src="videos/Cafe.mp4" type="video/mp4">
-    Tu navegador no soporta videos en HTML5.
-  </video>
+<section class="banner-principal" data-aos="fade-up">
+  <img src="img/CAFETERIA.jpg" alt="Cafe Aroma" class="imagen-fondo">
+  <div class="overlay"></div>
   <div class="texto-banner">
-    <h1>Bienvenido a Café Aroma🤎🍃</h1>
-    <p>El lugar donde cada sorbo cuenta una historia.</p>
+    <h1 class="animate__animated animate__fadeInDown animate__delay-0.2s">Bienvenido a Café Aroma 🤎🍃</h1>
+    <p class="animate__animated animate__slideInUp animate__delay-0.3s">El lugar donde cada sorbo cuenta una historia.</p>
   </div>
-</div>
-
+</section>
 
 <div class="galeria-secundaria">
-  <img src="https://images.adsttc.com/media/images/55d5/1f19/e58e/ce20/e900/01aa/large_jpg/PORTADA_Pd___Mtv_Medialunas_Calentitas_ph_G_Viramonte_005.jpg?1440030480" alt="Panadería artesanal">
-  <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428894095266287798/cafeteria.png?ex=68f428d3&is=68f2d753&hm=f7ae2046f6545ca1effe6ca6ed7d64210619f1a1c78949083d788008f23cfa0c&" alt="Desayuno delicioso">
-  <img src="https://img.freepik.com/fotos-premium/varios-dulces-postres-tienda-cafe-muestran-cerca_759575-6300.jpg" alt="Pastelería dulce">
+  <img src="https://images.adsttc.com/media/images/55d5/1f19/e58e/ce20/e900/01aa/large_jpg/PORTADA_Pd___Mtv_Medialunas_Calentitas_ph_G_Viramonte_005.jpg?1440030480" alt="Panadería artesanal" data-aos="fade-up">
+  <img src="https://cdn.discordapp.com/attachments/1387645836745510912/1428894095266287798/cafeteria.png?ex=68f428d3&is=68f2d753&hm=f7ae2046f6545ca1effe6ca6ed7d64210619f1a1c78949083d788008f23cfa0c&" alt="Desayuno delicioso" data-aos="fade-up" data-aos-delay="200">
+  <img src="https://img.freepik.com/fotos-premium/varios-dulces-postres-tienda-cafe-muestran-cerca_759575-6300.jpg" alt="Pastelería dulce" data-aos="fade-up" data-aos-delay="400">
 </div>
 <div style="height: 20px;"></div>
 
 <section class="nuestro-cafe">
   <div class="contenido-cafe">
-    <div class="texto-cafe">
+    <div class="texto-cafe" data-aos="fade-right">
       <h2>CAFÉ 100% NATURAL</h2>
       <h1>¿QUIENES SOMOS?</h1>
       <p>En Café Aroma somos amantes del buen café y apasionados por compartir su verdadera esencia.</p>
@@ -326,9 +435,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       <p>Experimenta un perfil en taza que resalta notas de chocolate, cuerpo cremoso, miel de maple y post gusto a caramelo.</p>
       <p>Cada taza es una obra maestra sensorial, invitándote a disfrutar de una experiencia auténtica y deliciosa en cada sorbo.</p>
     </div>
-    <div class="imagen-cafe">
-      <img src="img/Quienes-Somos.png" alt="fondo">
-    </div>
+    <div class="imagen-cafe" data-aos="zoom-in">
+      <video src="videos/Cafe.mp4" type="video/mp4" autoplay loop muted>
+        Tu navegador no soporta la etiqueta de video.
+      </video>
   </div>
 </section>
 
@@ -472,6 +582,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
          </tr>
           
    </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,     
+      offset: 100      
+    });
+  </script>
+</body>
 <footer>
   <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
     <tr>
@@ -486,6 +606,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </body>
 </html>
 </html>
-
-
-
