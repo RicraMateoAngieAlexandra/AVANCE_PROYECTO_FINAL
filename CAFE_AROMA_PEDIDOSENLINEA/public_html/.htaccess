@@ -1,0 +1,10 @@
+# Habilitar enlaces simbÃ³licos y desactivar el listado de directorios
+Options +FollowSymLinks -Indexes 
+
+# Activar mod_rewrite
+RewriteEngine On
+
+# Reglas de reescritura de URL amigables
+RewriteRule ^inicio$ conocenos.html [L]
+RewriteRule ^403$ 403.php [L]
+RewriteRule ^sugerenciasYdenuncias$ sugerenciasYdenuncias.php [L]

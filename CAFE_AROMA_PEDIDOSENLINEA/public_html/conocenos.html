@@ -33,7 +33,7 @@ body, main, .banner-principal, .galeria-secundaria, .nuestro-cafe, .catalogo, .s
 }
 .menu {
   background: #261403f0;
-  color: #ffe9c8;
+  color: #fff2df;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,7 +85,7 @@ body, main, .banner-principal, .galeria-secundaria, .nuestro-cafe, .catalogo, .s
 }
 
 .menu a:hover {
-  color: #ebb96c;
+  color: #f6c478;
 }
 .menu.scrolled {
   background-color: rgb(70, 41, 16); 
@@ -414,6 +414,198 @@ body {
 #menu-toggle:checked + .menu-icon span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+/* FOOTER GENERAL */
+.footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 40px 20px 15px;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;   /* ← ahora 3 columnas */
+  gap: 40px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-menu a {
+  color: #cfcfcf;
+  text-decoration: none;
+  display: block;
+  margin: 8px 0;
+}
+.footer-menu a:hover {
+  color: #ff9f30;
+}
+
+/* CONTACTO */
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.footer-line {
+  width: 60px;
+  height: 3px;
+  background-color: #ff9f30;
+  margin-bottom: 15px;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link {
+  color: #e2e2e2;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-link:hover {
+  color: #ff9f30;
+}
+
+/* MAPA */
+.footer-map img {
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  text-align: center;
+  padding-top: 25px;
+  color: #ff9f30;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-map img {
+    margin: auto;
+  }
+
+  .footer-line {
+    margin: 0 auto 15px auto;
+  }
+}
+
+  /* BOTÓN FLOTANTE */
+  #btn-flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #ff7b00;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.2s;
+  }
+  #btn-flotante:hover {
+    transform: scale(1.1);
+  }
+
+  /* MODAL */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+  }
+
+  .modal-contenido {
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    margin: 6% auto;
+    padding: 20px 25px; /* 🔥 más equilibrio */
+    border-radius: 10px;
+    box-sizing: border-box; /* asegura buen cálculo */
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* BOTÓN CERRAR */
+  .cerrar {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+  }
+
+  /* FORMULARIO */
+  .modal-contenido h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #ff7b00;
+  }
+
+  .modal-contenido label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .modal-contenido input,
+  .modal-contenido textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    margin-top: 5px;
+    box-sizing: border-box; /* 🔥 evita desbordes */
+    display: block;
+  }
+
+  .modal-contenido textarea {
+    resize: vertical;
+    height: 100px;
+  }
+
+  .modal-contenido button {
+    width: 100%;
+    padding: 12px;
+    background: #ff7b00;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .modal-contenido button:hover {
+    background: #e06f00;
+  }
 
     </style>
   </head>
@@ -436,8 +628,9 @@ body {
   <ul class="links">
     <li><a href="conocenos.html">Conocenos</a></li>
     <li><a href="reclamaciones.html">Reclamos</a></li>
-    <li><a href="sugerencias.html">Sugerencias</a></li>
-    <li><a href="ubicanos.html">Ubicanos</a></li>
+    <li><a href="login.html">Intranet</a></li>
+    
+    
   </ul>
  </nav>
   </header>
@@ -651,6 +844,30 @@ body {
 
   </div>
 </section>
+<!-- BOTÓN FLOTANTE -->
+<button id="btn-flotante">💡 Sugerencia</button>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <h2>SUGERENCIA</h2>
+
+    <form>
+      <label>Nombre Completo</label>
+      <input type="text" placeholder="Ingresa tu nombre">
+
+      <label>Email</label>
+      <input type="email" placeholder="correo@ejemplo.com">
+
+      <label>Mensaje</label>
+      <textarea placeholder="Escribe tu sugerencia"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
 <script>
   // Selecciona el nav con clase "menu"
   const menu = document.querySelector('.menu');
@@ -662,9 +879,30 @@ body {
       menu.classList.remove('scrolled'); // quita la clase
     }
   });
+  // MODAL
+  const modal = document.getElementById("modal");
+  const btn = document.getElementById("btn-flotante");
+  const cerrar = document.querySelector(".cerrar");
+
+  // Abrir modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // Cerrar modal con X
+  cerrar.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Cerrar modal haciendo clic fuera
+  window.onclick = function(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 </script>
     </style>
-<footer>
+<!--<footer>
   <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
     <tr>
       <td align="center">
@@ -674,6 +912,51 @@ body {
       </td>
     </tr>
   </table>
+</footer>-->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Columna izquierda -->
+    <div class="footer-col">
+      <img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/2615.gif" class="footer-logo" alt="Logo">
+      <h3>Menu</h3>
+      <div class="footer-line"></div>
+      <ul class="footer-menu">
+        <li><a href="conocenos.html">Conocenos</a></li>
+        <li><a href="reclamaciones.html">Reclamos</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna contacto -->
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <div class="footer-line"></div>
+
+      <ul class="footer-contact">
+        <li>📍 Av. Arequipa 1234, Lima 15046</li>
+        <li><a href="tel:+51945123789" class="footer-link">📞 945 123 789</a></li>
+        <li><a href="mailto:contacto@cafearoma.com" class="footer-link">✉️ contacto@cafearoma.com</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna mapa -->
+    <div class="footer-col footer-map">
+      <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.884720717642!2d-77.033!3d-12.043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8cfb9ed0fb7%3A0x54b93d7c5edda6af!2sAv.%20Arequipa%201234%2C%20Lima%2015046!5e0!3m2!1ses-419!2spe!4v000000000"
+          width="100%"
+          height="180"
+          style="border:0; border-radius:10px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+
+  <div class="footer-copy">
+    © 2025 Café Aroma. Todos los derechos reservados.
+  </div>
 </footer>
 </body>
 </html>
