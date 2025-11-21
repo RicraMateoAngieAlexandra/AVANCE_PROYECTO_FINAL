@@ -292,7 +292,7 @@ body {
   <nav class="menu">
    <div class="logo">
     <img src="img/Logo-Shooping.png" alt="Logo Café Aroma" style="height:100px; vertical-align:middle; margin-right:8px;">
-    <span>Shopping Café Aroma</span>
+    <span>Shopping Café Aroma-intranet</span>
     <div class="subtitulo"></div>
    </div>
 
@@ -355,7 +355,7 @@ body {
     <div class="categoria-item">
         <img src="img/Bebidas-frias.png" alt="Bebidas Frías">
         <h3>Bebidas Frías</h3>
-        <button class="btn-categoria">Ingresar</button>
+        <button id=btn-bebidas-frias class="btn-categoria">Ingresar</button>
     </div>
 
 </section>
@@ -404,8 +404,13 @@ dots.forEach((dot, index) => {
     });
 });
 
-// AUTO cambio
+// AUTO cambio cada 4 segundos
 setInterval(nextSlide, 4000);
+
+// BOTÓN Bebidas Frías
+document.getElementById("btn-bebidas-frias").addEventListener("click", () => {
+    window.location.href = "Bebidas-Frias.html";
+});
 </script>
   <footer class="footer">
     &copy; 2025 Café Aroma. Todos los derechos reservados.

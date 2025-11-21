@@ -13,7 +13,7 @@
         margin: 0;
         font-family: "Poppins", sans-serif;
         padding-top: 90px;
-        background: #f4f4f9;
+        background: #f2ede5;
         color: #333;
       }
       header {
@@ -24,7 +24,7 @@
         z-index: 1000;
       }
       .menu {
-        background: #2c2f33;
+        background: #6b4f3f;
         color: #fff;
         display: flex;
         justify-content: space-between;
@@ -53,24 +53,23 @@
         position: absolute;
         top: -5px;
         right: -10px;
-        background: #ff6b6b;
+        background: #d2691e;
         color: white;
         font-size: 14px;
         padding: 2px 6px;
         border-radius: 50%;
       }
-
       .carrito {
         display: none;
         position: absolute;
         top: 90px;
         right: 0;
-        width: 350px;
+        width: 340px;
         max-height: 450px;
         overflow-y: auto;
         background: #fff3e6;
         border-radius: 14px;
-        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
         padding: 15px;
         font-size: 14px;
       }
@@ -80,11 +79,12 @@
 
       .carrito h3 {
         margin: 0 0 10px 0;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
         color: #6b4f3f;
         text-align: center;
       }
+
       .carrito-item {
         display: flex;
         align-items: center;
@@ -92,6 +92,7 @@
         padding: 10px 0;
         border-bottom: 1px solid #d8cfc2;
       }
+
       .carrito-item img {
         width: 55px;
         height: 55px;
@@ -99,6 +100,7 @@
         border-radius: 8px;
         border: 1px solid #d8cfc2;
       }
+
       .item-info {
         flex: 1;
         display: flex;
@@ -106,37 +108,43 @@
         font-size: 13px;
         color: #3b2f2f;
       }
+
       .item-nombre {
         font-size: 14px;
         font-weight: 600;
         margin-bottom: 4px;
       }
+
       .item-cantidad {
         font-size: 13px;
-        margin-bottom: 4px;
         font-weight: 600;
         background: #d2691e;
         color: white;
         padding: 2px 6px;
         border-radius: 8px;
         display: inline-block;
+        margin-bottom: 4px;
       }
+
       .item-precio {
         font-size: 13px;
         color: #3b2f2f;
       }
+
       .subtotal {
         font-size: 13px;
         font-weight: 600;
         margin-top: 4px;
         text-align: right;
       }
+
       .controles {
         display: flex;
         align-items: center;
         gap: 6px;
         margin-top: 4px;
       }
+
       .controles button {
         width: 22px;
         height: 22px;
@@ -147,25 +155,23 @@
         cursor: pointer;
         color: #3b2f2f;
       }
+
       .controles button:hover {
         background: #d2691e;
         color: white;
-      }
-      .controles span {
-        font-weight: 700;
-        font-size: 14px;
       }
 
       .total-box {
         font-size: 16px;
         font-weight: 700;
-        margin-top: 10px;
         text-align: right;
         background: #d6b89c;
         color: #3b2f2f;
         padding: 6px 10px;
         border-radius: 8px;
+        margin-top: 10px;
       }
+
       .btn-continuar {
         margin-top: 12px;
         width: 100%;
@@ -178,19 +184,35 @@
         font-weight: 700;
         cursor: pointer;
       }
+
       .btn-continuar:hover {
         background: #b55a14;
       }
-      /* CATÁLOGO */
+
+      .btn-volver {
+        margin: 20px;
+        padding: 8px 14px;
+        background: #6b4f3f;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .btn-volver:hover {
+        background: #523b30;
+      }
+
+      /* Catálogo */
       .catalogo {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
         justify-content: center;
-        padding: 40px 20px;
+        padding: 20px;
       }
       .producto-card {
-        background: white;
+        background: #fff3e6;
         width: 220px;
         padding: 20px;
         border-radius: 16px;
@@ -217,7 +239,7 @@
         margin: 6px 0;
       }
       .producto-card button {
-        background: #ff6b6b;
+        background: #d2691e;
         color: white;
         border: none;
         padding: 10px 15px;
@@ -225,26 +247,8 @@
         cursor: pointer;
         font-weight: 600;
       }
-      .item-cantidad {
-        font-size: 13px;
-        font-weight: 600;
-        background: #ff6b6b;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 8px;
-        display: inline-block;
-        margin-bottom: 4px;
-      }
-
-      /* Cuadro para el total */
-      .total-box {
-        font-size: 16px;
-        font-weight: 700;
-        text-align: right;
-        background: #eee;
-        padding: 6px 10px;
-        border-radius: 8px;
-        margin-top: 10px;
+      .producto-card button:hover {
+        background: #b55a14;
       }
     </style>
   </head>
@@ -252,12 +256,14 @@
     <header>
       <nav class="menu">
         <div class="logo">
-          <img src="img/Logo-Shooping.png" alt="Logo" />
+          <img src="img/Logo-Shooping.png" />
           <span>Shopping Café Aroma</span>
         </div>
+
         <div class="nav-cart" id="nav-cart">
           <i class="fas fa-shopping-cart"></i>
           <span class="cart-count">0</span>
+
           <div class="carrito" id="carrito">
             <h3>Carrito</h3>
             <div id="carrito-items"></div>
@@ -268,57 +274,105 @@
       </nav>
     </header>
 
-    <section class="catalogo">
-      <div
-        class="producto-card"
-        data-id="1"
-        data-nombre="Café Americano"
-        data-precio="8"
-        data-img="img/Espresso.png"
-      >
-        <img src="img/Espresso.png" />
-        <h3>Café Americano</h3>
-        <p>Bebida caliente clásica</p>
-        <div class="precio">S/8</div>
-        <button onclick="agregarAlCarrito(this)">Agregar</button>
-      </div>
-      <div
-        class="producto-card"
-        data-id="2"
-        data-nombre="Cappuccino"
-        data-precio="12"
-        data-img="img/cappuccino.png"
-      >
-        <img src="img/cappuccino.png" />
-        <h3>Cappuccino</h3>
-        <p>Café con espuma de leche</p>
-        <div class="precio">S/12</div>
-        <button onclick="agregarAlCarrito(this)">Agregar</button>
-      </div>
-      <div
-        class="producto-card"
-        data-id="3"
-        data-nombre="Latte"
-        data-precio="10"
-        data-img="img/latte.png"
-      >
-        <img src="img/latte.png" />
-        <h3>Latte</h3>
-        <p>Café con leche suave</p>
-        <div class="precio">S/10</div>
-        <button onclick="agregarAlCarrito(this)">Agregar</button>
-      </div>
-    </section>
+    <button id="btn-volver" class="btn-volver">← Volver</button>
+
+    <section class="catalogo"></section>
 
     <script>
       const navCart = document.getElementById("nav-cart");
       const carritoDiv = document.getElementById("carrito-items");
       const totalDiv = document.getElementById("total");
       const cartCount = document.querySelector(".cart-count");
+      const catalogoDiv = document.querySelector(".catalogo");
       let carrito = [];
 
+      const productos = [
+        {
+          id: 1,
+          nombre: "Café Americano",
+          precio: 8,
+          img: "img/",
+          descripcion: "Bebida caliente clásica",
+        },
+        {
+          id: 2,
+          nombre: "Cappuccino",
+          precio: 12,
+          img: "img/cappuccino.png",
+          descripcion: "Café con espuma de leche",
+        },
+        {
+          id: 3,
+          nombre: "Latte",
+          precio: 10,
+          img: "img/latte.png",
+          descripcion: "Café con leche suave",
+        },
+        {
+          id: 4,
+          nombre: "Mocha",
+          precio: 14,
+          img: "img/mocha.png",
+          descripcion: "Café con chocolate",
+        },
+        {
+          id: 5,
+          nombre: "Té Verde",
+          precio: 7,
+          img: "img/te-verde.png",
+          descripcion: "Bebida saludable y refrescante",
+        },
+        {
+          id: 6,
+          nombre: "Smoothie de Frutas",
+          precio: 15,
+          img: "img/smoothie-frutas.png",
+          descripcion: "Bebida fría de frutas naturales",
+        },
+        {
+          id: 7,
+          nombre: "Limonada",
+          precio: 6,
+          img: "img/limonada.png",
+          descripcion: "Bebida cítrica refrescante",
+        },
+        {
+          id: 8,
+          nombre: "Chocolate Caliente",
+          precio: 9,
+          img: "img/chocolate-caliente.png",
+          descripcion: "Bebida dulce y reconfortante",
+        },
+      ];
+
+      // Generar catálogo con iteración
+      productos.forEach((producto) => {
+        const div = document.createElement("div");
+        div.className = "producto-card";
+        div.dataset.id = producto.id;
+        div.dataset.nombre = producto.nombre;
+        div.dataset.precio = producto.precio;
+        div.dataset.img = producto.img;
+
+        div.innerHTML = `
+    <img src="${producto.img}" alt="${producto.nombre}">
+    <h3>${producto.nombre}</h3>
+    <p>${producto.descripcion}</p>
+    <div class="precio">S/${producto.precio}</div>
+    <button onclick="agregarAlCarrito(this)">Agregar</button>
+  `;
+        catalogoDiv.appendChild(div);
+      });
+
+      // Volver a interfaz principal
+      document.getElementById("btn-volver").addEventListener("click", () => {
+        window.location.href = "Interfaz.html";
+      });
+
+      // Carrito
       navCart.addEventListener("click", (e) => {
-        if (e.target.closest(".carrito")) return;
+        if (e.target.closest(".carrito") || e.target.closest(".controles"))
+          return;
         navCart.classList.toggle("active");
       });
 
@@ -334,7 +388,6 @@
         else carrito.push({ id, nombre, precio, img, cantidad: 1 });
 
         actualizarCarrito();
-        navCart.classList.add("active"); // Abrir carrito al agregar
       }
 
       function actualizarCarrito() {
@@ -344,25 +397,25 @@
         carrito.forEach((item) => {
           const div = document.createElement("div");
           div.className = "carrito-item";
+
           div.innerHTML = `
-  <img src="${item.img}" alt="${item.nombre}">
-  <div class="item-info">
-    <p class="item-nombre">${item.nombre}</p>
-    <p class="item-cantidad">Cantidad: ${item.cantidad}</p>
-    <p class="item-precio">Precio unitario: S/ ${item.precio.toFixed(2)}</p>
-    <p class="subtotal">Subtotal: S/ ${(item.precio * item.cantidad).toFixed(
-      2
-    )}</p>
-    <div class="controles">
-      <button class="btn-cantidad" data-id="${
-        item.id
-      }" data-cambio="-1">−</button>
-      <button class="btn-cantidad" data-id="${
-        item.id
-      }" data-cambio="1">+</button>
-    </div>
-  </div>
-`;
+      <img src="${item.img}">
+      <div class="item-info">
+          <p class="item-nombre">${item.nombre}</p>
+          <p class="item-cantidad">Cantidad: ${item.cantidad}</p>
+          <p class="item-precio">Precio: S/ ${item.precio.toFixed(2)}</p>
+
+          <div class="controles">
+              <button onclick="cambiarCantidad('${item.id}', -1)">−</button>
+              <span>${item.cantidad}</span>
+              <button onclick="cambiarCantidad('${item.id}', 1)">+</button>
+          </div>
+
+          <p class="subtotal">Subtotal: S/ ${(
+            item.precio * item.cantidad
+          ).toFixed(2)}</p>
+      </div>
+    `;
 
           carritoDiv.appendChild(div);
           total += item.precio * item.cantidad;
@@ -370,22 +423,15 @@
 
         totalDiv.innerText = `Total: S/ ${total.toFixed(2)}`;
         cartCount.innerText = carrito.reduce((acc, el) => acc + el.cantidad, 0);
-
-        document.querySelectorAll(".btn-cantidad").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const id = btn.dataset.id;
-            const cambio = parseInt(btn.dataset.cambio);
-            cambiarCantidad(id, cambio);
-          });
-        });
       }
 
       function cambiarCantidad(id, cambio) {
         const item = carrito.find((i) => i.id === id);
         if (!item) return;
+
         item.cantidad += cambio;
         if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);
+
         actualizarCarrito();
       }
     </script>
