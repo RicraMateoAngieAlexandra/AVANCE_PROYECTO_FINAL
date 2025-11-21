@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png">
+   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Sugerencias y Libro de Reclamaciones</title>
+</head>
+<style>
+header {
+  position: fixed;       
+  top: 0;                
+  left: 0;               
+  width: 100%;           
+  z-index: 1000;
+  margin-bottom: 30px;         
+}
+body {
+    padding-top: 80px;
+}
+.menu {
+  background: #261403f0;
+  color: #fff2df;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  position: relative;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  position: relative;
+  z-index: 3000;
+}
+.menu-icon span {
+  background-color: #ffe9c8;
+  display: block;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+.menu-icon:hover span {
+  background-color: #f64c82;
+}
+.menu .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: rgb(251, 247, 247);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #f6c478;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* CONTENEDOR DE SLIDES */
+.slides {
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* BOTONES */
+.btn {
+    position: absolute;
+    top: 50%;
+    padding: 13px;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    font-size: 22px;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 10;
+}
+.btn:hover {
+    background: rgba(0,0,0,0.5);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* PUNTITOS */
+.indicadores {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.indicadores span {
+    height: 12px;
+    width: 12px;
+    background: #ffffff8a;
+    display: inline-block;
+    margin: 0 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicadores .activo {
+    background: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .slider { height: 250px; }
+}
+</style>
+
+  <header>
+    <nav class="menu">
+  <div class="logo">
+    <img src="img/Logo-cafecito.png" alt="Logo Café Aroma" style="height:80px; vertical-align:middle; margin-right:8px;">
+    <span>Café Aroma</span>
+    <div class="subtitulo"></div>
+  </div>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">
+   <span></span>
+   <span></span>
+   <span></span>
+  </label>
+
+  <ul class="links">
+    <li><a href="conocenos.html">Conocenos</a></li>
+    <li><a href="reclamaciones.html">Reclamos</a></li>
+
+  </ul>
+ </nav>
+  </header>
+
+<section class="slider">
+    <div class="slides">
+
+        <div class="slide active">
+            <img src="img/Promo1.png" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="img/Promo2.png" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="img/Promo3.png" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="img/Promo4.png" alt="">
+        </div>
+
+    </div>
+
+    <button class="btn prev">&#10094;</button>
+    <button class="btn next">&#10095;</button>
+
+    <div class="indicadores"></div>
+</section>
+<script>
+let currentIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const indicadores = document.querySelector(".indicadores");
+
+// Crear puntos
+slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("activo");
+    indicadores.appendChild(dot);
+});
+
+const dots = indicadores.querySelectorAll("span");
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("activo"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("activo");
+}
+
+// flecha derecha
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
+
+// flecha izquierda
+document.querySelector(".prev").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+});
+
+// flecha derecha
+document.querySelector(".next").addEventListener("click", nextSlide);
+
+// puntos clickeables
+dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        currentIndex = index;
+        showSlide(currentIndex);
+    });
+});
+
+// AUTO cambio
+setInterval(nextSlide, 4000);
+</script>
+  <footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+      <tr>
+        <td align="center">
+          <font color="#FFFFFF" size="-1">© 2025 Café Aroma. Todos los derechos reservados.</font>
+        </td>
+      </tr>
+    </table>
+  </footer>
+</body>
+
+</html>
