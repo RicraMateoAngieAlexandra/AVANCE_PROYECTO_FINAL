@@ -227,8 +227,9 @@
       }
       .producto-card img {
         width: 180px;
-        height: 120px;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
+        max-height: 120px;
         border-radius: 12px;
       }
       .producto-card h3 {
@@ -289,58 +290,58 @@
       const productos = [
         {
           id: 1,
-          nombre: "Café Americano",
-          precio: 8,
-          img: "img/",
+          nombre: "frappé de café",
+          precio: 19.00,
+          img: "img/frappe-de-cafe.png",
           descripcion: "Bebida caliente clásica",
         },
         {
           id: 2,
-          nombre: "Cappuccino",
-          precio: 12,
-          img: "img/cappuccino.png",
+          nombre: "iced mocha",
+          precio: 16.00,
+          img: "img/iced-mocha.png",
           descripcion: "Café con espuma de leche",
         },
         {
           id: 3,
-          nombre: "Latte",
-          precio: 10,
-          img: "img/latte.png",
+          nombre: "Latte Helado",
+          precio: 14.00,
+          img: "img/Latte-helado.png",
           descripcion: "Café con leche suave",
         },
         {
           id: 4,
-          nombre: "Mocha",
-          precio: 14,
-          img: "img/mocha.png",
+          nombre: "Cold brew",
+          precio: 16.00,
+          img: "img/cold-brew.png",
           descripcion: "Café con chocolate",
         },
         {
           id: 5,
-          nombre: "Té Verde",
-          precio: 7,
-          img: "img/te-verde.png",
+          nombre: "smoothie de fruta",
+          precio: 16.00,
+          img: "img/smothi.png",
           descripcion: "Bebida saludable y refrescante",
         },
         {
           id: 6,
-          nombre: "Smoothie de Frutas",
-          precio: 15,
-          img: "img/smoothie-frutas.png",
+          nombre: "affogato esspresso",
+          precio: 15.00,
+          img: "img/affogato.png",
           descripcion: "Bebida fría de frutas naturales",
         },
         {
           id: 7,
           nombre: "Limonada",
-          precio: 6,
+          precio: 10.00,
           img: "img/limonada.png",
           descripcion: "Bebida cítrica refrescante",
         },
         {
           id: 8,
-          nombre: "Chocolate Caliente",
-          precio: 9,
-          img: "img/chocolate-caliente.png",
+          nombre: "Latte de vainilla helado",
+          precio: 15.00,
+          img: "img/latte-vainilla.png",
           descripcion: "Bebida dulce y reconfortante",
         },
       ];
