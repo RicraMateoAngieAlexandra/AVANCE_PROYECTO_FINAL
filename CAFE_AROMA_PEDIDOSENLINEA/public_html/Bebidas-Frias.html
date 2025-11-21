@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bebidas Frías — Shopping Café Aroma</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+  margin:0; font-family:"Poppins",sans-serif; padding-top:90px;
+  background:#F4F4F9; color:#333;
+}
+header{ position:fixed; top:0; left:0; width:100%; z-index:1000; }
+.menu{
+  background:#2C2F33; color:#fff; display:flex; justify-content:space-between;
+  align-items:center; padding:0 20px; height:80px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+.logo{ display:flex; align-items:center; gap:10px; font-size:20px; font-weight:bold; }
+.logo img{ height:100px; }
+
+.nav-cart{ position:relative; font-size:30px; cursor:pointer; }
+.cart-count{
+  position:absolute; top:-5px; right:-10px; background:#FF6B6B; color:white;
+  font-size:14px; padding:2px 6px; border-radius:50%;
+}
+.carrito{
+  display:none;
+  position:absolute;
+  top:90px;
+  right:0;
+  width:330px;
+  max-height:450px;
+  overflow-y:auto;
+  background:white;
+  border-radius:14px;
+  box-shadow:0px 8px 25px rgba(0,0,0,0.20);
+  padding:15px;
+  font-size:14px;
+}
+.nav-cart.active .carrito{ display:block; }
+
+.carrito h3{
+  margin:0 0 5px 0;
+  font-size:16px;
+  font-weight:600;
+}
+
+.carrito-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.carrito-item img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.item-info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  font-size:13px;
+}
+
+.item-nombre{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:3px;
+}
+
+.item-precio{
+  font-size:13px;
+  color:#555;
+}
+
+.controles{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:4px;
+}
+
+.controles button{
+  width:22px;
+  height:22px;
+  border:none;
+  background:#eee;
+  font-size:16px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.controles span{
+  font-weight:700;
+  font-size:14px;
+}
+
+.subtotal{
+  font-size:13px;
+  font-weight:600;
+  margin-top:4px;
+  text-align:right;
+}
+
+.total-box{
+  font-size:16px;
+  font-weight:700;
+  margin-top:10px;
+  text-align:right;
+}
+
+.btn-continuar{
+  margin-top:12px;
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#FF6B6B;
+  color:white;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+
+/* -------- CATÁLOGO -------- */
+.catalogo{
+  display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
+  padding:40px 20px;
+}
+.producto-card{
+  background:white; width:220px; padding:20px; border-radius:16px; text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
+  transition:0.3s; cursor:pointer;
+}
+.producto-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.2);
+}
+.producto-card img{
+  width:180px; height:120px; object-fit:cover; border-radius:12px;
+}
+.producto-card h3{ margin:10px 0 4px 0; }
+.precio{ font-weight:700; margin:6px 0; }
+.producto-card button{
+  background:#FF6B6B; color:white; border:none; padding:10px 15px;
+  border-radius:10px; cursor:pointer; font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="menu">
+  <div class="logo">
+    <img src="img/Logo-Shooping.png">
+    <span>Shopping Café Aroma</span>
+  </div>
+
+  <div class="nav-cart" id="nav-cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span>
+
+    <div class="carrito" id="carrito">
+      <h3>Carrito</h3>
+      <div id="carrito-items"></div>
+
+      <div class="total-box" id="total">Total: S/ 0.00</div>
+      <button class="btn-continuar">CONTINUAR</button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<!-- ----------- CATÁLOGO ----------- -->
+<section class="catalogo">
+
+  <div class="producto-card" data-id="1" data-nombre="Café Americano" data-precio="8" data-img="img/Espresso.png">
+    <img src="img/Espresso.png">
+    <h3>Café Americano</h3>
+    <p>Bebida caliente clásica</p>
+    <div class="precio">S/8</div>
+    <button onclick="agregarAlCarrito(this)">Agregar</button>
+  </div>
+
+  <div class="producto-card" data-id="2" data-nombre="Cappuccino" data-precio="12" data-img="img/cappuccino.png">
+    <img src="img/cappuccino.png">
+    <h3>Cappuccino</h3>
+    <p>Café con espuma de leche</p>
+    <div class="precio">S/12</div>
+    <button onclick="agregarAlCarrito(this)">Agregar</button>
+  </div>
+
+  <div class="producto-card" data-id="3" data-nombre="Latte" data-precio="10" data-img="img/latte.png">
+    <img src="img/latte.png">
+    <h3>Latte</h3>
+    <p>Café con leche suave</p>
+    <div class="precio">S/10</div>
+    <button onclick="agregarAlCarrito(this)">Agregar</button>
+  </div>
+
+</section>
+
+<script>
+const navCart = document.getElementById('nav-cart');
+const carritoDiv = document.getElementById('carrito-items');
+const totalDiv = document.getElementById('total');
+const cartCount = document.querySelector('.cart-count');
+let carrito = [];
+
+navCart.addEventListener('click', e=>{
+  if(e.target.closest('.carrito')) return;
+  navCart.classList.toggle('active');
+});
+
+function agregarAlCarrito(btn){
+  const card = btn.parentElement;
+  const id = card.dataset.id;
+  const nombre = card.dataset.nombre;
+  const precio = parseFloat(card.dataset.precio);
+  const img = card.dataset.img;
+
+  const item = carrito.find(i=>i.id===id);
+  if(item) item.cantidad++;
+  else carrito.push({id,nombre,precio,img,cantidad:1});
+
+  actualizarCarrito();
+}
+
+function actualizarCarrito(){
+  carritoDiv.innerHTML = "";
+  let total = 0;
+
+  carrito.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "carrito-item";
+
+    div.innerHTML = `
+      <img src="${item.img}">
+      <div class="item-info">
+          <p class="item-nombre">${item.nombre}</p>
+          <p class="item-precio">Precio: S/ ${item.precio.toFixed(2)}</p>
+
+          <div class="controles">
+              <button onclick="cambiarCantidad('${item.id}', -1)">−</button>
+              <span>${item.cantidad}</span>
+              <button onclick="cambiarCantidad('${item.id}', 1)">+</button>
+          </div>
+
+          <p class="subtotal">Subtotal: S/ ${(item.precio * item.cantidad).toFixed(2)}</p>
+      </div>
+    `;
+
+    carritoDiv.appendChild(div);
+
+    total += item.precio * item.cantidad;
+  });
+
+  totalDiv.innerText = `Total: S/ ${total.toFixed(2)}`;
+  cartCount.innerText = carrito.reduce((acc, el) => acc + el.cantidad, 0);
+}
+</script>
+
+</body>
+</html>
