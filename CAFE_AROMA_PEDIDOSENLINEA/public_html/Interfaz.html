@@ -333,7 +333,7 @@ body {
 
     </div>
 
-    <button class="btn prev">&#10094;</button>
+    <button class="btn prev">&#10094;</button> 
     <button class="btn next">&#10095;</button>
 
     <div class="indicadores"></div>
@@ -361,7 +361,7 @@ body {
 </section>
 <script>
 let currentIndex = 0;
-const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".slide"); //selecciona todas las diapositivas
 const indicadores = document.querySelector(".indicadores");
 
 // Crear puntos
@@ -374,7 +374,7 @@ slides.forEach((_, i) => {
 const dots = indicadores.querySelectorAll("span");
 
 function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach(slide => slide.classList.remove("active"));//oculta todas las diapositivas.
     dots.forEach(dot => dot.classList.remove("activo"));
 
     slides[index].classList.add("active");
@@ -383,13 +383,13 @@ function showSlide(index) {
 
 // flecha derecha
 function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+    currentIndex = (currentIndex + 1) % slides.length; // Incrementa el índice y vuelve al inicio si se acaba las diapositivas.
     showSlide(currentIndex);
 }
 
 // flecha izquierda
 document.querySelector(".prev").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length; //resta el índice y vuelve al final si se acaba las diapositivas.
     showSlide(currentIndex);
 });
 
@@ -398,16 +398,16 @@ document.querySelector(".next").addEventListener("click", nextSlide);
 
 // puntos clickeables
 dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
+    dot.addEventListener("click", () => { 
         currentIndex = index;
-        showSlide(currentIndex);
+        showSlide(currentIndex); // Actualizara la diapositiva actual al hacer clic en un punto.
     });
 });
 
-// AUTO cambio cada 4 segundos
+
 setInterval(nextSlide, 4000);
 
-// BOTÓN Bebidas
+// Boton de bebidas frias
 document.getElementById("btn-bebidas-frias").addEventListener("click", () => {
     window.location.href = "Bebidas-Frias.html";
 });

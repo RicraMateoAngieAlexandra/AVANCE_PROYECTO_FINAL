@@ -279,13 +279,14 @@
 
     <section class="catalogo"></section>
 
-    <script>
+    <script>//script de carrito de compras.
+
       const navCart = document.getElementById("nav-cart");
       const carritoDiv = document.getElementById("carrito-items");
       const totalDiv = document.getElementById("total");
       const cartCount = document.querySelector(".cart-count");
       const catalogoDiv = document.querySelector(".catalogo");
-      let carrito = [];
+      let carrito = [];//array para almacenar los productos en el carrito.
 
       const productos = [
         {
@@ -378,15 +379,15 @@
       });
 
       function agregarAlCarrito(btn) {
-        const card = btn.parentElement;
+        const card = btn.parentElement;//obtener la tarjeta del producto.
         const id = card.dataset.id;
         const nombre = card.dataset.nombre;
-        const precio = parseFloat(card.dataset.precio);
+        const precio = parseFloat(card.dataset.precio);//convertir a número decimaL el preio.
         const img = card.dataset.img;
 
         const item = carrito.find((i) => i.id === id);
-        if (item) item.cantidad++;
-        else carrito.push({ id, nombre, precio, img, cantidad: 1 });
+        if (item) item.cantidad++; //Si ya  existe el producto en el carrito, aumenta la cantidad.
+        else carrito.push({ id, nombre, precio, img, cantidad: 1 });//Si no existe el producto lo agrega.
 
         actualizarCarrito();
       }
@@ -399,16 +400,17 @@
           const div = document.createElement("div");
           div.className = "carrito-item";
 
+          // Crear el contenido del item del carrito
           div.innerHTML = `
       <img src="${item.img}">
       <div class="item-info">
-          <p class="item-nombre">${item.nombre}</p>
+          <p class="item-nombre">${item.nombre}</p> 
           <p class="item-cantidad">Cantidad: ${item.cantidad}</p>
           <p class="item-precio">Precio: S/ ${item.precio.toFixed(2)}</p>
 
           <div class="controles">
-              <button onclick="cambiarCantidad('${item.id}', -1)">−</button>
-              <span>${item.cantidad}</span>
+              <button onclick="cambiarCantidad('${item.id}', -1)">−</button> 
+              <span>${item.cantidad}</span>                                  // muestra la cantidad actual.
               <button onclick="cambiarCantidad('${item.id}', 1)">+</button>
           </div>
 
@@ -418,20 +420,20 @@
       </div>
     `;
 
-          carritoDiv.appendChild(div);
+      carritoDiv.appendChild(div);
           total += item.precio * item.cantidad;
         });
 
-        totalDiv.innerText = `Total: S/ ${total.toFixed(2)}`;
-        cartCount.innerText = carrito.reduce((acc, el) => acc + el.cantidad, 0);
+        totalDiv.innerText = `Total: S/ ${total.toFixed(2)}`;//actualiza el total del carrito.
+        cartCount.innerText = carrito.reduce((acc, el) => acc + el.cantidad, 0);//actualiza el contador del carrito.
       }
 
       function cambiarCantidad(id, cambio) {
-        const item = carrito.find((i) => i.id === id);
+        const item = carrito.find((i) => i.id === id); //busca el producto dentro del carrito
         if (!item) return;
 
-        item.cantidad += cambio;
-        if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);
+        item.cantidad += cambio; //cambia la cantidad segun el boton presionado si cambio es 1 o -1
+        if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);//elimina el producto si la cantidad es 0.
 
         actualizarCarrito();
       }
