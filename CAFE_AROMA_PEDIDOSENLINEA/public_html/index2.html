@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aroma - Productos y Servicios</title>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================
+        MENU SUPERIOR
+============================= -->
+<nav class="menu">
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo Café Aroma" style="height:40px; vertical-align:middle; margin-right:8px;">
+        <span>Café Aroma</span>
+        <div class="subtitulo">Gestión de Sugerencias y Libro de Reclamaciones</div>
+    </div>
+
+    <!-- Icono móvil -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+    <ul class="links">
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="reclamaciones.html">Reclamos</a></li>
+    </ul>
+</nav>
+
+
+<!-- ============================
+        TITULO PRINCIPAL
+============================= -->
+<center>
+<table width="100%" cellpadding="16" cellspacing="0" style="background-color:#f5e8d7;" border="0">
+    <tr>
+        <td colspan="2" align="center">
+
+            <h1 style="font-family:'Georgia',serif; font-size:28px; font-weight:bold;">
+                Productos y Servicios
+            </h1>
+
+            <p>
+                "En Aroma te invitamos a vivir una experiencia única donde el aroma y el sabor se encuentran en perfecta armonía. 
+                Nuestra cafetería ofrece cafés especiales y bebidas artesanales pensados para acompañar cada momento del día. 
+                Descubre nuestros productos y servicios creados para brindarte calidad, calidez y el placer de una buena taza de café ☕😊"
+            </p>
+
+        </td>
+    </tr>
+</table>
+</center>
+
+
+<!-- ============================
+        VIDEO / PRODUCTOS
+============================= -->
+<table width="100%" cellpadding="10" cellspacing="0" style="background-color:#EFE2D0;" border="0">
+    <tr>
+        <td colspan="2" align="center" style="font-family:'Georgia',serif; font-size:28px; font-weight:bold;">
+            <b>Productos de alta calidad 🏆</b>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <iframe width="500" height="315"
+                    src="https://www.youtube.com/embed/0jIeCAOkgcQ?si=UniQVhGejyOHANoh"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+        </td>
+    </tr>
+</table>
+
+
+<!-- ============================
+    UBÍCANOS / CONTACTENOS
+============================= -->
+<table width="100%" cellpadding="12" cellspacing="0" bgcolor="#FFFFFF">
+<tr>
+<td>
+
+    <h2>📍 Ubícanos / Contáctenos</h2>
+    <p>Estamos para ayudarte — visítanos o escríbenos</p>
+
+    <table width="100%" cellpadding="8">
+        <tr>
+
+            <!-- -------- Columna Izquierda -------- -->
+            <td width="50%" valign="top" bgcolor="#F9F9F9" style="padding:10px;">
+
+                <p><b>Dirección:</b><br> Av. Arequipa 1234, Lima 15046</p>
+
+                <p><b>Teléfono:</b><br>
+                    <a href="tel:+51945123789">(+51) 945 123 789</a>
+                </p>
+
+                <p><b>Correo:</b><br>
+                    <a href="mailto:contacto@cafearoma.com">contacto@cafearoma.com</a>
+                </p>
+
+                <p>
+                    <a href="tel:+51945123789">📞 Llamar</a> |
+                    <a href="https://wa.me/51945123789" target="_blank">💬 WhatsApp</a> |
+                    <a href="mailto:contacto@cafearoma.com">📧 Correo</a>
+                </p>
+
+                <!-- Mapa -->
+                <iframe src="https://www.google.com/maps/embed?..."
+                        width="100%" height="250"
+                        style="border:0; border-radius:8px;"
+                        allowfullscreen loading="lazy"></iframe>
+            </td>
+
+            <!-- -------- Columna Derecha -------- -->
+            <td width="50%" valign="top" style="padding:10px;">
+
+                <form id="form-contacto" onsubmit="alert('Gracias por tu mensaje 😊'); return false;" novalidate>
+
+                    <label for="ctcNombre">Nombre *</label><br>
+                    <input id="ctcNombre" type="text" name="nombre" required minlength="2" maxlength="80" size="40"><br><br>
+
+                    <label for="ctcEmail">Email *</label><br>
+                    <input id="ctcEmail" type="email" name="email" required size="40"><br><br>
+
+                    <label for="ctcMensaje">Mensaje *</label><br>
+                    <textarea id="ctcMensaje" name="mensaje" rows="5" cols="42"
+                              required minlength="10" maxlength="1200"></textarea><br><br>
+
+                    <input type="submit" value="Enviar mensaje">
+                </form>
+
+                <p><small><b>Horario de atención:</b><br>
+                    Lun – Vie: 08:00 – 20:00 | Sáb: 09:00 – 15:00
+                </small></p>
+
+            </td>
+        </tr>
+    </table>
+
+</td>
+</tr>
+</table>
+
+
+
+<!-- ============================
+            FOOTER
+============================= -->
+<footer>
+    <table width="100%" cellpadding="16" cellspacing="0" bgcolor="#482704">
+        <tr>
+            <td align="center">
+                <font color="#FFFFFF" size="-1">
+                    2025 Café Aroma. Todos los derechos reservados.
+                </font>
+            </td>
+        </tr>
+    </table>
+</footer>
+
+</body>
+</html>

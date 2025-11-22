@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda — Shopping Café Aroma</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        padding-top: 90px;
+        background: #f2ede5;
+        color: #333;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .menu {
+        background: #6b4f3f;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 80px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .logo img {
+        height: 100px;
+      }
+
+      .nav-cart {
+        position: relative;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background: #d2691e;
+        color: white;
+        font-size: 14px;
+        padding: 2px 6px;
+        border-radius: 50%;
+      }
+      .carrito {
+        display: none;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 340px;
+        max-height: 450px;
+        overflow-y: auto;
+        background: #fff3e6;
+        border-radius: 14px;
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+        padding: 15px;
+        font-size: 14px;
+      }
+      .nav-cart.active .carrito {
+        display: block;
+      }
+
+      .carrito h3 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #6b4f3f;
+        text-align: center;
+      }
+
+      .carrito-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid #d8cfc2;
+      }
+
+      .carrito-item img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #d8cfc2;
+      }
+
+      .item-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+        color: #3b2f2f;
+      }
+
+      .item-nombre {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .item-cantidad {
+        font-size: 13px;
+        font-weight: 600;
+        background: #d2691e;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 4px;
+      }
+
+      .item-precio {
+        font-size: 13px;
+        color: #3b2f2f;
+      }
+
+      .subtotal {
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: 4px;
+        text-align: right;
+      }
+
+      .controles {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .controles button {
+        width: 22px;
+        height: 22px;
+        border: none;
+        background: #eee8e1;
+        font-size: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #3b2f2f;
+      }
+
+      .controles button:hover {
+        background: #d2691e;
+        color: white;
+      }
+
+      .total-box {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: right;
+        background: #d6b89c;
+        color: #3b2f2f;
+        padding: 6px 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      .btn-continuar {
+        margin-top: 12px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #d2691e;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .btn-continuar:hover {
+        background: #b55a14;
+      }
+
+      .btn-volver {
+        margin: 20px;
+        padding: 8px 14px;
+        background: #6b4f3f;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .btn-volver:hover {
+        background: #523b30;
+      }
+
+      /* Catálogo */
+      .catalogo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        padding: 20px;
+      }
+      .producto-card {
+        background: #fff3e6;
+        width: 220px;
+        padding: 20px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      .producto-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      }
+      .producto-card img {
+        width: 180px;
+        height: auto;
+        object-fit: contain;
+        max-height: 120px;
+        border-radius: 12px;
+      }
+      .producto-card h3 {
+        margin: 10px 0 4px 0;
+      }
+      .precio {
+        font-weight: 700;
+        margin: 6px 0;
+      }
+      .producto-card button {
+        background: #d2691e;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .producto-card button:hover {
+        background: #b55a14;
+      }
+      .precio-boton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .precio {
+      font-weight: 700;
+      font-size: 18px;
+    }
+  .modal-pago, .modal-exito {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content-pago, .modal-content-exito {
+  background: #fff;
+  padding: 25px;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.resumen-carrito div {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.total-final {
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+  color: #6b4f3f;
+}
+
+#form-pago input, #form-pago select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-pagar, .btn-aceptar {
+  background: #d2691e;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-pagar:hover, .btn-aceptar:hover {
+  background: #b55a14;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logo">
+          <img src="img/Logo-Shooping.png" />
+          <span>Shopping Café Aroma</span>
+        </div>
+
+        <div class="nav-cart" id="nav-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+
+          <div class="carrito" id="carrito">
+            <h3>Carrito</h3>
+            <div id="carrito-items"></div>
+            <div class="total-box" id="total">Total: S/ 0.00</div>
+            <button class="btn-continuar">CONTINUAR</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <button id="btn-frias" class="btn-volver">Bebidas Frias</button>
+    <button id="btn-calientes" class="btn-volver">Bebidas Calientes</button>
+    <button id="btn-postres" class="btn-volver">Bebidas Postres</button>
+
+    <section class="catalogo"></section>
+
+<!-- MODAL RESUMEN + PAGO -->
+<div id="modal-pago" class="modal-pago">
+  <div class="modal-content-pago">
+
+    <span class="close-modal" onclick="cerrarModalPago()">×</span>
+
+    <h2>Resumen de compra</h2>
+
+    <div id="resumen-carrito" class="resumen-carrito"></div>
+
+    <h3 class="total-final"></h3>
+
+    <hr />
+
+    <h2>Datos de Pago</h2>
+
+    <form id="form-pago">
+      <label>Nombre completo:</label>
+      <input type="text" required />
+
+      <label>Correo electrónico:</label>
+      <input type="email" required />
+
+      <label>Método de pago:</label>
+      <select required>
+        <option value="">Seleccione…</option>
+        <option value="tarjetacredito">Tarjeta de Credito</option>
+        <option value="tarjetadebito">Tarjeta de Debito</option>
+      </select>
+
+      <label>Número de tarjeta:</label>
+      <input type="text" maxlength="16" />
+
+      <button type="submit" class="btn-pagar">PAGAR</button>
+    </form>
+
+  </div>
+</div>
+
+<!-- MODAL EXITO -->
+<div id="modal-exito" class="modal-exito">
+  <div class="modal-content-exito">
+    <h2>🎉 Pago realizado con éxito 🎉</h2>
+    <p>Gracias por su compra.</p>
+
+    <button onclick="cerrarExito()" class="btn-aceptar">Aceptar</button>
+  </div>
+</div>
+
+
+    <script>
+      const navCart = document.getElementById("nav-cart");
+      const carritoDiv = document.getElementById("carrito-items");
+      const totalDiv = document.getElementById("total");
+      const cartCount = document.querySelector(".cart-count");
+      const catalogoDiv = document.querySelector(".catalogo");
+      let carrito = [];
+
+      // LISTAR BEBIDAS CALIENTES
+      const productosCalientes = [
+        {
+          id: 1,
+          nombre: "Esspreso Clasico",
+          precio: 15.00,
+          img: "img/Espresso.png",
+          descripcion: "Bebida caliente clásica",
+        },
+        {
+          id: 2,
+          nombre: "Capuchino",
+          precio: 14.00,
+          img: "img/capuchino.png",
+          descripcion: "Leche vaporizada coronada con shots de intenso café espressoe",
+        },
+        {
+          id: 3,
+          nombre: "Chocolate Caliente",
+          precio: 13.00,
+          img: "img/chocolate.png",
+          descripcion: "Clásico chocolate caliente con leche vaporizada y salsa de chocolate. Sin endulzantes.",
+        },
+        {
+          id: 4,
+          nombre: "Cafe Americano",
+          precio: 12.00,
+          img: "https://www.starbucksathome.com/pe/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png",
+          descripcion: "Café americano clasico",
+        },
+        {
+          id: 5,
+          nombre: "Caffe Mocha",
+          precio: 17.00,
+          img: "https://www.starbucksathome.com/pe/sites/default/files/2021-05/10032021_CafeMocha_LS-min.png",
+          descripcion: "Bebida saludable y refrescante",
+        },
+        {
+          id: 6,
+          nombre: "Vanilla Latte",
+          precio: 14.00,
+          img: "https://www.starbucksathome.com/pe/sites/default/files/2021-03/Vanilla%20Latte_LongShadow_Cream_1.png",
+          descripcion: "Bebida caliente de vainilla",
+        },
+      ];
+
+      //LISTAR BEBIDAS FRIAS
+      const productosFrias = [
+      {
+          id: 1,
+          nombre: "frappé de café",
+          precio: 19.00,
+          img: "img/frappe-de-cafe.png",
+          descripcion: "Bebida fria clásica",
+        },
+        {
+          id: 2,
+          nombre: "iced mocha",
+          precio: 16.00,
+          img: "img/iced-mocha.png",
+          descripcion: "Café con espuma de leche",
+        },
+        {
+          id: 3,
+          nombre: "Latte Helado",
+          precio: 14.00,
+          img: "img/Latte-helado.png",
+          descripcion: "Café con leche suave",
+        },
+        {
+          id: 4,
+          nombre: "Cold brew",
+          precio: 16.00,
+          img: "img/cold-brew.png",
+          descripcion: "Café con chocolate",
+        },
+        {
+          id: 5,
+          nombre: "smoothie de fruta",
+          precio: 16.00,
+          img: "img/smothi.png",
+          descripcion: "Bebida saludable y refrescante",
+        },
+        {
+          id: 6,
+          nombre: "affogato esspresso",
+          precio: 15.00,
+          img: "img/affogato.png",
+          descripcion: "Bebida fría de frutas naturales",
+        },
+        {
+          id: 7,
+          nombre: "Limonada",
+          precio: 10.00,
+          img: "img/Limonada.png",
+          descripcion: "Bebida cítrica refrescante",
+        },
+        {
+          id: 8,
+          nombre: "Latte de vainilla helado",
+          precio: 15.00,
+          img: "img/latte-vainilla.png",
+          descripcion: "Bebida dulce y reconfortante",
+        },
+      ];
+      
+      //LISTAR POSTRES
+      const productosPostres = [
+        {
+          id: 1,
+          nombre: "Pastel de chocolate",
+          precio: 14.00,
+          img: "img/Pastel-chocolate.png",
+          descripcion: "Bizcocho esponjoso con cobertura de cacao",
+        },
+        {
+          id: 2,
+          nombre: "Pie de manzana",
+          precio: 13.00,
+          img: "img/Pie-Manzana.png",
+          descripcion: "Tarta tradicional de manzana caramelizada",
+        },
+        {
+          id: 3,
+          nombre: "Tarta esquia",
+          precio: 15.00,
+          img: "img/postres-esquia.png",
+          descripcion: "Tarta delicada con crema batida",
+        },
+        {
+          id: 4,
+          nombre: "Macarons y pasteles",
+          precio: 12.00,
+          img: "img/pngtree-macarons-with-pastel-colors-png-image_3976075.png",
+          descripcion: "Dulces elegantes y coloridos",
+        },
+        {
+          id: 5,
+          nombre: "Porción de pie de manzana",
+          precio: 10.00,
+          img: "https://png.pngtree.com/png-clipart/20240906/original/pngtree-classic-homemade-apple-pie-with-a-flaky-crust-png-image_15950643.png",
+          descripcion: "Porción lista para disfrutar con café",
+        }
+      ];
+
+
+        function mostrarProductos(lista) {
+          catalogoDiv.innerHTML = "";
+
+          lista.forEach(prod => {
+            const card = document.createElement("div");
+            card.classList.add("producto-card");
+            card.dataset.id = prod.id;
+            card.dataset.nombre = prod.nombre;
+            card.dataset.precio = prod.precio;
+            card.dataset.img = prod.img;
+
+            card.innerHTML = `
+              <img src="${prod.img}" class="prod-img">
+              <h3>${prod.nombre}</h3>
+              <p>${prod.descripcion}</p>
+
+              <div class="precio-boton">
+                <span class="precio">S/${prod.precio}</span></br>
+                <button class="btn-add">Agregar</button>
+              </div>
+            `;
+            card.querySelector(".btn-add").addEventListener("click", () => {
+              agregarAlCarrito(card);
+            });
+
+            catalogoDiv.appendChild(card);
+          });
+        }
+
+
+
+      document.getElementById("btn-calientes").addEventListener("click", () => {
+        mostrarProductos(productosCalientes);
+      });
+
+      document.getElementById("btn-frias").addEventListener("click", () => {
+        mostrarProductos(productosFrias);
+      });
+
+      document.getElementById("btn-postres").addEventListener("click", () => {
+        mostrarProductos(productosPostres);
+      });
+
+
+      // Carrito
+      navCart.addEventListener("click", (e) => {
+        if (e.target.closest(".carrito") || e.target.closest(".controles"))
+          return;
+        navCart.classList.toggle("active");
+      });
+
+        function agregarAlCarrito(btn) {
+          const card = btn.closest(".producto-card");
+
+          const id = card.dataset.id;
+          const nombre = card.dataset.nombre;
+          const precio = parseFloat(card.dataset.precio);
+          const img = card.dataset.img;
+
+          const item = carrito.find(i => i.id === id);
+
+          if (item) {
+            item.cantidad++;
+          } else {
+            carrito.push({ id, nombre, precio, img, cantidad: 1 });
+          }
+
+          actualizarCarrito();
+        }
+
+
+      function actualizarCarrito() {
+        carritoDiv.innerHTML = "";
+        let total = 0;
+
+        carrito.forEach((item) => {
+          const div = document.createElement("div");
+          div.className = "carrito-item";
+
+          div.innerHTML = `
+      <img src="${item.img}">
+      <div class="item-info">
+          <p class="item-nombre">${item.nombre}</p>
+          <p class="item-cantidad">Cantidad: ${item.cantidad}</p>
+          <p class="item-precio">Precio: S/ ${item.precio.toFixed(2)}</p>
+
+          <div class="controles">
+              <button onclick="cambiarCantidad('${item.id}', -1)">−</button>
+              <span>${item.cantidad}</span>
+              <button onclick="cambiarCantidad('${item.id}', 1)">+</button>
+          </div>
+
+          <p class="subtotal">Subtotal: S/ ${(
+            item.precio * item.cantidad
+          ).toFixed(2)}</p>
+      </div>
+    `;
+
+          carritoDiv.appendChild(div);
+          total += item.precio * item.cantidad;
+        });
+
+        totalDiv.innerText = `Total: S/ ${total.toFixed(2)}`;
+        cartCount.innerText = carrito.reduce((acc, el) => acc + el.cantidad, 0);
+      }
+
+      function cambiarCantidad(id, cambio) {
+        const item = carrito.find((i) => i.id === id);
+        if (!item) return;
+
+        item.cantidad += cambio;
+        if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);
+
+        actualizarCarrito();
+      }
+
+          // ABRIR MODAL
+    document.querySelector(".btn-continuar").addEventListener("click", () => {
+      if (carrito.length === 0) return alert("Tu carrito está vacío.");
+
+      const modal = document.getElementById("modal-pago");
+      modal.style.display = "flex";
+
+      const resumen = document.getElementById("resumen-carrito");
+      resumen.innerHTML = "";
+
+      let total = 0;
+
+      carrito.forEach(item => {
+        resumen.innerHTML += `
+          <div>
+            <strong>${item.nombre}</strong> (x${item.cantidad})  
+            - S/ ${(item.precio * item.cantidad).toFixed(2)}
+          </div>
+        `;
+        total += item.precio * item.cantidad;
+      });
+
+      document.querySelector(".total-final").innerText =
+        "Total a pagar: S/ " + total.toFixed(2);
+    });
+
+    // CERRAR MODAL
+    function cerrarModalPago() {
+      document.getElementById("modal-pago").style.display = "none";
+    }
+
+    // PROCESAR PAGO
+    document.getElementById("form-pago").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // cerrar modal pago
+      document.getElementById("modal-pago").style.display = "none";
+
+      // abrir modal éxito
+      document.getElementById("modal-exito").style.display = "flex";
+    });
+
+    // CERRAR MODAL DE ÉXITO
+    function cerrarExito() {
+      document.getElementById("modal-exito").style.display = "none";
+    }
+
+document.getElementById("form-pago").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+      // Preparar los datos del pago
+      const nombre = document.querySelector("#form-pago input[type='text']").value;
+      const correo = document.querySelector("#form-pago input[type='email']").value;
+      const metodo = document.querySelector("#form-pago select").value;
+      const tarjeta = document.querySelector("#form-pago input[maxlength='16']").value;
+
+      // Total
+      let total = carrito.reduce((t, item) => t + item.precio * item.cantidad, 0);
+
+      // Detalle del carrito
+      let detalle = carrito.map(item => ({
+          producto: item.nombre,
+          cantidad: item.cantidad,
+          subtotal: (item.precio * item.cantidad).toFixed(2)
+      }));
+
+      // Enviar a MySQL
+      const respuesta = await fetch("bd.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              nombre,
+              correo,
+              metodo,
+              total,
+              detalle
+          })
+      });
+
+      const resultado = await respuesta.json();
+
+      console.log(resultado);
+
+      // Cerrar modal de pago
+      document.getElementById("modal-pago").style.display = "none";
+
+      // Mostrar modal de éxito
+      document.getElementById("modal-exito").style.display = "flex";
+
+      // Vaciar carrito
+      carrito = [];
+      actualizarCarrito();
+  });
+
+
+            // Mostrar Bebidas Frías por defecto al cargar la página
+      window.onload = () => {
+        mostrarProductos(productosFrias);
+      };
+
+    </script>
+  </body>
+</html>
