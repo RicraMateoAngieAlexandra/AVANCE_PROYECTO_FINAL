@@ -316,19 +316,19 @@ body {
     <div class="slides">
 
         <div class="slide active">
-            <img src="img/Promo1.png" alt="">
+            <img src="img/Promo-1.png" alt="">
         </div>
 
         <div class="slide">
-            <img src="img/Promo2.png" alt="">
+            <img src="img/promo-2.png" alt="">
         </div>
 
         <div class="slide">
-            <img src="img/Promo3.png" alt="">
+            <img src="img/promo-3.png" alt="">
         </div>
 
         <div class="slide">
-            <img src="img/Promo4.png" alt="">
+            <img src="img/promo-4.png" alt="">
         </div>
 
     </div>
@@ -343,15 +343,13 @@ body {
     <div class="categoria-item">
         <img src="img/Tipos-cafe.png" alt="Bebidas Calientes">
         <h3>Bebidas Calientes</h3>
-        <button class="btn-categoria">Ingresar</button>
+        <button id="btn-calientes" class="btn-categoria">Ingresar</button>
     </div>
 
     <div class="categoria-item">
        <img src="img/Postres.png" alt="Postres">
        <h3>Postres</h3>
-       <a href="Postres.html">
-         <button class="btn-categoria">Ingresar</button>
-       </a>
+         <button id="btn-postres" class="btn-categoria">Ingresar</button>
     </div>
 
 
@@ -416,8 +414,15 @@ setInterval(nextSlide, 4000);
 
 // Boton de bebidas frias
 document.getElementById("btn-bebidas-frias").addEventListener("click", () => {
-    window.location.href = "Bebidas-Frias.html";
-});
+    window.location.href = "tienda.html";});
+// Boton de postres
+document.getElementById("btn-postres").addEventListener("click", () => {
+    window.location.href = "tienda.html";});
+// Boton de bebidas calientes
+document.getElementById("btn-calientes").addEventListener("click", () => {
+    window.location.href = "tienda.html";});
+
+
 </script>
   <footer class="footer">
     &copy; 2025 Café Aroma. Todos los derechos reservados.
